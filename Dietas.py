@@ -285,15 +285,15 @@ class SistemaExperto(KnowledgeEngine):
         print("- Limitar el consumo de alimentos procesados y azucarados.")
 
     #------------------Fin Dietas Embarazo ----------------------------------------------------
-
-    # Define la regla default
-@Rule(AS.f1 << Dieta(objetivo=MATCH.o),
-      AS.f2 << Dieta(actividad_fisica=MATCH.af),
-      AS.f3 << Dieta(problemas_medicos=MATCH.pm),
-      AS.f4 << Dieta(embarazo=MATCH.e))
-def default(self, f1, f2, f3, f4, o, af, pm, e):
-    if (o, af, pm, e) not in [(p, "si", "no", "no"), (p, "no", "no", "no")]:
+    # Regla por defecto
+    @Rule(AS.f1 << Dieta(objetivo=MATCH.o),
+        AS.f2 << Dieta(actividad_fisica=MATCH.af),
+        AS.f3 << Dieta(problemas_medicos=MATCH.pm),
+        AS.f4 << Dieta(embarazo=MATCH.e),
+        TEST(lambda o, af, pm, e: o not in ["si", "no"] or af not in ["si", "no"] or pm not in ["si", "no"] or e not in ["si", "no"]))
+    def default_rule(self, f1, f2, f3, f4, o, af, pm, e):
         print("Lo siento, no hay dietas disponibles para tus respuestas.")
+
 
 
 
@@ -327,5 +327,4 @@ if __name__ == "__main__":
             limpiar_pantalla()
 
     engine.declare(Dieta(objetivo=objetivo, actividad_fisica=actividad_fisica, problemas_medicos=problemas_medicos, embarazo=embarazo))
-    print("[---------------------------------------------------------------------------------------------------------]")
     engine.run()

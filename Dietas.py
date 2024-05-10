@@ -1,4 +1,12 @@
 from experta import *
+import os
+
+
+def limpiar_pantalla():
+    if os.name == 'nt':
+        _ = os.system('cls')
+    else:
+        _ = os.system('clear')
 
 
 class Dieta(Fact):
@@ -13,6 +21,7 @@ class SistemaExperto(KnowledgeEngine):
       Dieta(problemas_medicos="no"),
       Dieta(embarazo="no"))
     def dieta_para_perder_peso_activo(self):
+        limpiar_pantalla()
         print("Dieta para perder peso (activo):")
         print("\nLunes:")
         print("- Desayuno: Batido de frutas con yogur bajo en grasa.")
@@ -53,8 +62,10 @@ class SistemaExperto(KnowledgeEngine):
 
     @Rule(Dieta(objetivo="mantener peso"),
           Dieta(actividad_fisica="si"),
-          ~Dieta(problemas_medicos="no"))
+          Dieta(problemas_medicos="no"),
+          Dieta(embarazo="no"))
     def dieta_para_mantener_peso_activo(self):
+        limpiar_pantalla()
         print("Dieta para mantener peso (activo):")
         print("\nLunes:")
         print("- Desayuno: Tostadas integrales con aguacate y huevo revuelto.")
@@ -91,31 +102,82 @@ class SistemaExperto(KnowledgeEngine):
         print("- Almuerzo: Hamburguesas de pavo a la parrilla con ensalada verde y papas asadas.")
         print("- Cena: Pasta integral con salsa de tomate casera y albóndigas de carne magra.")
 
-    @Rule(Dieta(objetivo="ganar peso"),
-          Dieta(actividad_fisica="si"),
-          ~Dieta(problemas_medicos="no"))      
-    def dieta_para_mantener_peso_activo_no_medico(self):
-        print("Dieta para ganar peso (activo):")
-        print("- Equilibrar la ingesta de carbohidratos, proteínas y grasas.")
-        print("- Consumir porciones moderadas y evitar excesos.")
-        print("- Incluir variedad de alimentos en la dieta.")
-
-    @Rule(Dieta(objetivo=OR("perder peso", "mantener peso", "ganar peso")),
-          Dieta(actividad_fisica="no"),
-          ~Dieta(problemas_medicos="no"))
+    @Rule(Dieta(objetivo="perder peso"),
+      Dieta(actividad_fisica="no"),
+      Dieta(problemas_medicos="no"),
+      Dieta(embarazo="no"))
     def dieta_para_sedentario(self):
-        print("Dieta para una vida sedentaria:")
+        limpiar_pantalla()
+        print("Dieta para una vida sedentaria [Perder peso]:")
+        print("\nLunes:")
+        print("- Desayuno: Té verde con tostadas integrales y aguacate.")
+        print("- Almuerzo: Ensalada de espinacas, tomate y pechuga de pollo a la plancha.")
+        print("- Cena: Sopa de verduras con un trozo de pan integral.")
+
+        print("\nMartes:")
+        print("- Desayuno: Yogur natural con granola y frutos rojos.")
+        print("- Almuerzo: Salmón al horno con brócoli al vapor.")
+        print("- Cena: Ensalada de garbanzos con tomate, pepino y aderezo de limón.")
+
+        print("\nMiércoles:")
+        print("- Desayuno: Batido de frutas con espinacas.")
+        print("- Almuerzo: Pavo al horno con ensalada verde.")
+        print("- Cena: Tortilla de claras con champiñones y espinacas.")
+
+        print("\nJueves:")
+        print("- Desayuno: Avena cocida con rodajas de manzana y canela.")
+        print("- Almuerzo: Ensalada de quinoa con vegetales asados.")
+        print("- Cena: Pechuga de pollo a la plancha con espárragos.")
+
+        print("\nViernes:")
+        print("- Desayuno: Tostadas integrales con mantequilla de almendras y plátano en rodajas.")
+        print("- Almuerzo: Atún al natural con ensalada de tomate y aguacate.")
+        print("- Cena: Berenjenas al horno con queso fresco.")
+
+        print("\nSábado:")
+        print("- Desayuno: Smoothie de bayas con espinacas.")
+        print("- Almuerzo: Lentejas estofadas con verduras.")
+        print("- Cena: Ensalada de salmón ahumado con aguacate y pepino.")
+
+        print("\nDomingo:")
+        print("- Desayuno: Té de hierbas con tostadas integrales y mermelada sin azúcar añadido.")
+        print("- Almuerzo: Pollo a la parrilla con espárragos al vapor.")
+        print("- Cena: Crema de calabaza con un trozo de pan integral.")
+
+    @Rule(Dieta(objetivo="mantener peso"),
+          Dieta(actividad_fisica="no"),
+          Dieta(problemas_medicos="no"),
+          Dieta(embarazo="no"))
+    def dieta_para_sedentario_mantenerpeso(self):
+        limpiar_pantalla()
+        print("Dieta para una vida sedentaria: [mantener peso]")
         print("- Controlar las porciones y evitar alimentos altos en calorías.")
         print("- Priorizar alimentos integrales y frescos.")
-        print("- Limitar el consumo de alimentos procesados y azucarados.") 
+        print("- Limitar el consumo de alimentos procesados y azucarados.")  
+
+
+    @Rule(Dieta(objetivo="ganar peso"),
+      Dieta(actividad_fisica="no"),
+      Dieta(problemas_medicos="no"),
+      Dieta(embarazo="no"))
+    def dieta_para_sedentario_ganarpeso(self):
+        limpiar_pantalla()
+        print("Dieta para una vida sedentaria: [ganar peso]")
+        print("- Controlar las porciones y evitar alimentos altos en calorías.")
+        print("- Priorizar alimentos integrales y frescos.")
+        print("- Limitar el consumo de alimentos procesados y azucarados.")    
+
+
 
     #--------------------Fin dietas sin problemas medicos---------------------------------
 
     #------------------Dietas con problemas medicos / ACTIVIDAD FISIFCA = SI--------------------------------------
     @Rule(Dieta(objetivo="ganar peso"),
           Dieta(actividad_fisica="si"),
-          ~Dieta(problemas_medicos="si"))
+          Dieta(problemas_medicos="si"),
+          Dieta(embarazo="no"))
     def dieta_para_ganar_peso(self):
+        limpiar_pantalla()
         print("Dieta para ganar peso: [Problemas medicos]")
         print("- Aumentar la ingesta de calorías con alimentos nutritivos.")
         print("- Incluir carbohidratos complejos, proteínas y grasas saludables.")
@@ -123,8 +185,10 @@ class SistemaExperto(KnowledgeEngine):
 
     @Rule(Dieta(objetivo="perder peso"),
           Dieta(actividad_fisica="si"),
-          ~Dieta(problemas_medicos="si"))
+          Dieta(problemas_medicos="si"),
+          Dieta(embarazo="no"))
     def dieta_para_perder_peso(self):
+        limpiar_pantalla()
         print("Dieta para perder peso: [Problemas medicos]")
         print("- Aumentar la ingesta de calorías con alimentos nutritivos.")
         print("- Incluir carbohidratos complejos, proteínas y grasas saludables.")
@@ -132,56 +196,135 @@ class SistemaExperto(KnowledgeEngine):
 
     @Rule(Dieta(objetivo="mantener peso"),
           Dieta(actividad_fisica="si"),
-          ~Dieta(problemas_medicos="si"))
+          Dieta(problemas_medicos="si"),
+          Dieta(embarazo="no"))
     def dieta_para_mantener_peso(self):
+        limpiar_pantalla()
         print("Dieta para mantener peso: [Problemas medicos]")
         print("- Aumentar la ingesta de calorías con alimentos nutritivos.")
         print("- Incluir carbohidratos complejos, proteínas y grasas saludables.")
         print("- Realizar comidas frecuentes y snacks nutritivos.")
 
-    @Rule(Dieta(objetivo=OR("perder peso", "mantener peso", "ganar peso")),
-          Dieta(actividad_fisica="si"),
-          ~Dieta(problemas_medicos="si"))
-    def dieta_para_sedentario(self):
-        print("Dieta para una vida sedentaria: [Problemas medicos]")
-        print("- Controlar las porciones y evitar alimentos altos en calorías.")
-        print("- Priorizar alimentos integrales y frescos.")
-        print("- Limitar el consumo de alimentos procesados y azucarados.")    
-
-    #--------------------Fin dietas con problemas medicos---------------------------------
-    #------------------Dietas Embarazo ----------------------------------------------------
-    @Rule(Dieta(objetivo=OR("perder peso", "mantener peso", "ganar peso")),
-          Dieta(actividad_fisica=OR("si", "no")),
-          Dieta(embarazo="si"),
-           ~Dieta(problemas_medicos="no"))
-    def dieta_para_embarazo(self):
-        print("Dieta para una vida sedentaria: [Problemas medicos]")
+    @Rule(Dieta(objetivo="perder peso"),
+          Dieta(actividad_fisica="no"),
+          Dieta(problemas_medicos="si"),
+          Dieta(embarazo="no"))
+    def dieta_para_sedentario_medico(self):
+        limpiar_pantalla()
+        print("Dieta para una vida sedentaria: [ Perder Peso -Problemas medicos]")
         print("- Controlar las porciones y evitar alimentos altos en calorías.")
         print("- Priorizar alimentos integrales y frescos.")
         print("- Limitar el consumo de alimentos procesados y azucarados.")
 
-    @Rule(Dieta(objetivo=OR("perder peso", "mantener peso", "ganar peso")),
-          Dieta(actividad_fisica=OR("si", "no")),
-          Dieta(embarazo="si"),
-           ~Dieta(problemas_medicos="si"))
-    def dieta_para_embarazo_medico(self):
-        print("Dieta para una vida sedentaria: [Problemas medicos]")
+    @Rule(Dieta(objetivo="mantener peso"),
+          Dieta(actividad_fisica="no"),
+          Dieta(problemas_medicos="si"),
+          Dieta(embarazo="no"))
+    def dieta_para_sedentario_medico_mantenerpeso(self):
+        limpiar_pantalla()
+        print("Dieta para una vida sedentaria: [ Mantener Peso -Problemas medicos]")
+        print("- Controlar las porciones y evitar alimentos altos en calorías.")
+        print("- Priorizar alimentos integrales y frescos.")
+        print("- Limitar el consumo de alimentos procesados y azucarados.") 
+
+    @Rule(Dieta(objetivo="ganar peso"),
+          Dieta(actividad_fisica="no"),
+          Dieta(problemas_medicos="si"),
+          Dieta(embarazo="no"))
+    def dieta_para_sedentario_medico_mantenerpeso(self):
+        limpiar_pantalla()
+        print("Dieta para una vida sedentaria: [ Ganar Peso -Problemas medicos]")
+        print("- Controlar las porciones y evitar alimentos altos en calorías.")
+        print("- Priorizar alimentos integrales y frescos.")
+        print("- Limitar el consumo de alimentos procesados y azucarados.")       
+
+    #--------------------Fin dietas con problemas medicos---------------------------------
+    #------------------Dietas Embarazo ----------------------------------------------------
+    @Rule(Dieta(objetivo="salud"),
+          Dieta(actividad_fisica="si"),
+          Dieta(problemas_medicos="no"),
+          Dieta(embarazo="si"))
+    def dieta_para_embarazo(self):
+        limpiar_pantalla()
+        print("Dieta para embarazo ")
+        print("- Controlar las porciones y evitar alimentos altos en calorías.")
+        print("- Priorizar alimentos integrales y frescos.")
+        print("- Limitar el consumo de alimentos procesados y azucarados.")
+
+    @Rule(Dieta(objetivo="salud"),
+          Dieta(actividad_fisica="no"),
+          Dieta(problemas_medicos="no"),
+          Dieta(embarazo="si"))
+    def dieta_para_embarazo_sedentaria(self):
+        limpiar_pantalla()
+        print("Dieta para embarazo [sedentaria]")
+        print("- Controlar las porciones y evitar alimentos altos en calorías.")
+        print("- Priorizar alimentos integrales y frescos.")
+        print("- Limitar el consumo de alimentos procesados y azucarados.")    
+    #---------------------PROBLEMAS MEDICOS-----------------------
+    @Rule(Dieta(objetivo="salud"),
+          Dieta(actividad_fisica="si"),
+          Dieta(problemas_medicos="si"),
+          Dieta(embarazo="si"))
+    def dieta_para_embarazo_medico_fisico(self):
+        limpiar_pantalla()
+        print("Dieta para embarazo [Problemas medicos - Actividad fisica] ")
         print("- Controlar las porciones y evitar alimentos altos en calorías.")
         print("- Priorizar alimentos integrales y frescos.")
         print("- Limitar el consumo de alimentos procesados y azucarados.")    
 
-    #------------------Fin Dietas Embarazo ----------------------------------------------------
+    @Rule(Dieta(objetivo="salud"),
+          Dieta(actividad_fisica="no"),
+          Dieta(problemas_medicos="si"),
+          Dieta(embarazo="si"))
+    def dieta_para_embarazo_nofisico_medico(self):
+        limpiar_pantalla()
+        print("Dieta para embarazo [Problemas medicos - sedentaria] ")
+        print("- Controlar las porciones y evitar alimentos altos en calorías.")
+        print("- Priorizar alimentos integrales y frescos.")
+        print("- Limitar el consumo de alimentos procesados y azucarados.")
 
-    @Rule()
-    def default(self):
+    #------------------Fin Dietas Embarazo ----------------------------------------------------
+    # Regla por defecto
+    @Rule(AS.f1 << Dieta(objetivo=MATCH.o),
+        AS.f2 << Dieta(actividad_fisica=MATCH.af),
+        AS.f3 << Dieta(problemas_medicos=MATCH.pm),
+        AS.f4 << Dieta(embarazo=MATCH.e),
+        TEST(lambda o, af, pm, e: o not in ["si", "no"] or af not in ["si", "no"] or pm not in ["si", "no"] or e not in ["si", "no"]))
+    def default_rule(self, f1, f2, f3, f4, o, af, pm, e):
         print("Lo siento, no hay dietas disponibles para tus respuestas.")
+
+
 
 
 if __name__ == "__main__":
     engine = SistemaExperto()
     engine.reset()
-    engine.declare(Dieta(objetivo=input("1. ¿Cuál es tu objetivo del plan alimenticio? (Perder peso / Mantener peso / Ganar peso): ").lower(),
-                        actividad_fisica=input("2. ¿Realizas alguna actividad física? (Si / No): ").lower(),
-                        problemas_medicos=input("3. ¿Sufres de algún problema médico? (Si / No): ").lower(),
-                        embarazo=input("4.¿Te encuentras en proceso de gestación? (si / no)").lower()))
+    is_correct = False
+    while not is_correct:
+        objetivo = input("1. ¿Cuál es tu objetivo del plan alimenticio? (perder peso / mantener peso / ganar peso / salud): ").lower()
+        actividad_fisica = input("2. ¿Realizas alguna actividad física? (Si / No): ").lower()
+        problemas_medicos = input("3. ¿Sufres de algún problema médico? (Si / No): ").lower()
+        embarazo = input("4. ¿Te encuentras en etapa de gestación? (si / No): ").lower()
+
+        if objetivo in ["perder peso", "mantener peso", "ganar peso", "salud"]:
+            if actividad_fisica in ["si", "no"]:
+                if problemas_medicos in ["si", "no"]:
+                    if embarazo in ["si", "no"]:
+                        is_correct = True
+                    else:
+                        print("Respuesta incorrecta para la pregunta 4.")
+                else:
+                    print("Respuesta incorrecta para la pregunta 3.")
+            else:
+                print("Respuesta incorrecta para la pregunta 2.")
+        else:
+            print("Respuesta incorrecta para la pregunta 1.")
+
+        if not is_correct:
+            print("Por favor, ingresa respuestas válidas.\n")
+            input()
+            limpiar_pantalla()
+
+    engine.declare(Dieta(objetivo=objetivo, actividad_fisica=actividad_fisica, problemas_medicos=problemas_medicos, embarazo=embarazo))
     engine.run()

@@ -9,8 +9,9 @@ class Dieta(Fact):
 class SistemaExperto(KnowledgeEngine):
     #------------------Dietas sin problemas medicos / ACTIVIDAD FISIFCA = SI----------------------------------
     @Rule(Dieta(objetivo="perder peso"),
-          Dieta(actividad_fisica="si"),
-          ~Dieta(problemas_medicos="no"))
+      Dieta(actividad_fisica="si"),
+      Dieta(problemas_medicos="no"),
+      Dieta(embarazo="no"))
     def dieta_para_perder_peso_activo(self):
         print("Dieta para perder peso (activo):")
         print("\nLunes:")
@@ -47,6 +48,8 @@ class SistemaExperto(KnowledgeEngine):
         print("- Desayuno: Smoothie de espinacas, piña y jengibre.")
         print("- Almuerzo: Pollo al curry con arroz integral y verduras al vapor.")
         print("- Cena: Salmón a la plancha con espárragos y batata al horno.")
+
+
 
     @Rule(Dieta(objetivo="mantener peso"),
           Dieta(actividad_fisica="si"),
@@ -91,7 +94,7 @@ class SistemaExperto(KnowledgeEngine):
     @Rule(Dieta(objetivo="ganar peso"),
           Dieta(actividad_fisica="si"),
           ~Dieta(problemas_medicos="no"))      
-    def dieta_para_mantener_peso_activo(self):
+    def dieta_para_mantener_peso_activo_no_medico(self):
         print("Dieta para ganar peso (activo):")
         print("- Equilibrar la ingesta de carbohidratos, proteínas y grasas.")
         print("- Consumir porciones moderadas y evitar excesos.")
@@ -121,7 +124,7 @@ class SistemaExperto(KnowledgeEngine):
     @Rule(Dieta(objetivo="perder peso"),
           Dieta(actividad_fisica="si"),
           ~Dieta(problemas_medicos="si"))
-    def dieta_para_ganar_peso(self):
+    def dieta_para_perder_peso(self):
         print("Dieta para perder peso: [Problemas medicos]")
         print("- Aumentar la ingesta de calorías con alimentos nutritivos.")
         print("- Incluir carbohidratos complejos, proteínas y grasas saludables.")
@@ -130,7 +133,7 @@ class SistemaExperto(KnowledgeEngine):
     @Rule(Dieta(objetivo="mantener peso"),
           Dieta(actividad_fisica="si"),
           ~Dieta(problemas_medicos="si"))
-    def dieta_para_ganar_peso(self):
+    def dieta_para_mantener_peso(self):
         print("Dieta para mantener peso: [Problemas medicos]")
         print("- Aumentar la ingesta de calorías con alimentos nutritivos.")
         print("- Incluir carbohidratos complejos, proteínas y grasas saludables.")
@@ -161,7 +164,7 @@ class SistemaExperto(KnowledgeEngine):
           Dieta(actividad_fisica=OR("si", "no")),
           Dieta(embarazo="si"),
            ~Dieta(problemas_medicos="si"))
-    def dieta_para_embarazo(self):
+    def dieta_para_embarazo_medico(self):
         print("Dieta para una vida sedentaria: [Problemas medicos]")
         print("- Controlar las porciones y evitar alimentos altos en calorías.")
         print("- Priorizar alimentos integrales y frescos.")
@@ -180,7 +183,5 @@ if __name__ == "__main__":
     engine.declare(Dieta(objetivo=input("1. ¿Cuál es tu objetivo del plan alimenticio? (Perder peso / Mantener peso / Ganar peso): ").lower(),
                         actividad_fisica=input("2. ¿Realizas alguna actividad física? (Si / No): ").lower(),
                         problemas_medicos=input("3. ¿Sufres de algún problema médico? (Si / No): ").lower(),
-                        embarazo=input("4.¿Te encuentras en proceso de gestación").lower(),
-                        calorias=input("5. ¿Cuál es tu estimación de metabolismo y requisitos calóricos? (Bajo / Moderado / Alto): ").lower(),
-                        restricciones=input("6. ¿Tienes preferencias alimenticias o restricciones específicas? (Vegetariano / Vegano / Sin restricciones): ").lower()))
+                        embarazo=input("4.¿Te encuentras en proceso de gestación? (si / no)").lower()))
     engine.run()

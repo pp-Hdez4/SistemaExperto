@@ -1,2 +1,3 @@
 pip install experta
 pip install --upgrade frozendict
+pip install reportlab

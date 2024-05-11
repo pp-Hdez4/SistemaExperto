@@ -1,5 +1,10 @@
 from experta import *
 import os
+import pdfkit
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet
 
 
 def limpiar_pantalla():
@@ -7,6 +12,35 @@ def limpiar_pantalla():
         _ = os.system('cls')
     else:
         _ = os.system('clear')
+        
+def convertir_html_a_pdf(html_content, output_filename):
+    try:
+        output_path = "Dietas"
+        # Crear la carpeta Dietas si no existe
+        if not os.path.exists(output_path):
+            os.makedirs(output_path)
+
+        # Crear el documento PDF
+        output_file = os.path.join(output_path, output_filename)
+        doc = SimpleDocTemplate(output_file, pagesize=letter)
+        styles = getSampleStyleSheet()
+        flowables = []
+
+        # Separar el contenido HTML en líneas y crear un Paragraph para cada línea
+        lines = html_content.strip().split('\n')
+        for line in lines:
+            p = Paragraph(line, styles['Normal'])
+            flowables.append(p)
+            flowables.append(Spacer(1, 12))  # Agregar espacio entre párrafos
+
+        # Construir el PDF
+        doc.build(flowables)
+
+        limpiar_pantalla()
+        print("Dieta generada con éxito!")
+        print(f"El PDF se ha guardado en: {output_file}")
+    except Exception as e:
+        print(f"Error al generar el PDF: {e}")
 
 
 class Dieta(Fact):
@@ -57,6 +91,68 @@ class SistemaExperto(KnowledgeEngine):
         print("- Desayuno: Smoothie de espinacas, piña y jengibre.")
         print("- Almuerzo: Pollo al curry con arroz integral y verduras al vapor.")
         print("- Cena: Salmón a la plancha con espárragos y batata al horno.")
+        
+        contenido = """
+                <html>
+                <head>
+                    <title>Dieta para perder peso (activo)</title>
+                </head>
+                <body>
+                    <h1>Dieta para perder peso (activo)</h1>
+                    <h1>Lunes:</h1>
+                    <h2>Desayuno:</h2>
+                    <p>- Batido de frutas con yogur bajo en grasa.</p>
+                    <p>- Almuerzo: Ensalada de espinacas, queso feta y nueces.</p>
+                    <p>- Cena: Pechuga de pollo a la plancha con espárragos al vapor.</p>
+
+                    <h1>Martes:</h1>
+                    <h2>Desayuno:</h2>
+                    <p>- Avena cocida con trozos de manzana y canela.</p>
+                    <p>- Almuerzo: Salmón al horno con brócoli al vapor.</p>
+                    <p>- Cena: Ensalada de quinoa con vegetales asados.</p>
+
+                    <h1>Miércoles:</h1>
+                    <h2>Desayuno:</h2>
+                    <p>- Tortilla de claras de huevo con espinacas y tomates cherry.</p>
+                    <p>- Almuerzo: Filete de pavo a la plancha con espárragos a la parrilla.</p>
+                    <p>- Cena: Sopa de verduras con pollo desmenuzado.</p>
+
+                    <h1>Jueves:</h1>
+                    <h2>Desayuno:</h2>
+                    <p>- Batido de proteínas con espinacas y plátano.</p>
+                    <p>- Almuerzo: Ensalada de garbanzos, pepino y tomate con vinagreta de limón.</p>
+                    <p>- Cena: Pescado al horno con espárragos y zanahorias al vapor.</p>
+
+                    <h1>Viernes:</h1>
+                    <h2>Desayuno:</h2>
+                    <p>- Yogur griego con nueces y arándanos.</p>
+                    <p>- Almuerzo: Tiras de pollo a la parrilla con ensalada de col.</p>
+                    <p>- Cena: Berenjenas rellenas de carne magra y verduras.</p>
+
+                    <h1>Sábado:</h1>
+                    <h2>Desayuno:</h2>
+                    <p>- Tostadas integrales con aguacate y huevo pochado.</p>
+                    <p>- Almuerzo: Sopa de lentejas con verduras y un poco de queso parmesano.</p>
+                    <p>- Cena: Brochetas de camarones con vegetales a la parrilla.</p>
+
+                    <h1>Domingo:</h1>
+                    <h2>Desayuno:</h2>
+                    <p>- Smoothie de espinacas, piña y jengibre.</p>
+                    <p>- Almuerzo: Pollo al curry con arroz integral y verduras al vapor.</p>
+                    <p>- Cena: Salmón a la plancha con espárragos y batata al horno.</p>
+                </body>
+                </html>
+            """
+             # Nombre del archivo de salida PDF
+        nombre_archivo_pdf = 'dieta_para_perder_peso_activo.pdf'
+        print("Presiona enter para generar el PDF de la dieta \n")
+        input()
+
+        # Convertir HTML a PDF utilizando la función separada
+        convertir_html_a_pdf(contenido, nombre_archivo_pdf)
+            
+        
+        
 
 
 
@@ -101,6 +197,78 @@ class SistemaExperto(KnowledgeEngine):
         print("- Desayuno: Smoothie de frutas con espinacas y semillas de chía.")
         print("- Almuerzo: Hamburguesas de pavo a la parrilla con ensalada verde y papas asadas.")
         print("- Cena: Pasta integral con salsa de tomate casera y albóndigas de carne magra.")
+        
+        contenido = """
+                    <html>
+                    <head>
+                        <title>Dieta para mantener peso (activo)</title>
+                    </head>
+                    <body>
+                        <h1>Dieta para mantener peso (activo)</h1>
+                        <h1>Lunes:</h1>
+                        <h2>Desayuno:</h2>
+                        <p>- Tostadas integrales con aguacate y huevo revuelto.</p>
+                        <h2>Almuerzo:</h2>
+                        <p>- Ensalada de quinoa con vegetales mixtos y aderezo de limón y aceite de oliva.</p>
+                        <h2>Cena:</h2>
+                        <p>- Filete de salmón al horno con espárragos y batata asada.</p>
+
+                        <h1>Martes:</h1>
+                        <h2>Desayuno:</h2>
+                        <p>- Batido de proteínas con espinacas, plátano y leche de almendras.</p>
+                        <h2>Almuerzo:</h2>
+                        <p>- Pollo a la parrilla con espárragos al vapor y una ensalada de tomate y pepino.</p>
+                        <h2>Cena:</h2>
+                        <p>- Tacos de pescado con tortillas de maíz, repollo rallado y salsa de yogur.</p>
+
+                        <h1>Miércoles:</h1>
+                        <h2>Desayuno:</h2>
+                        <p>- Avena cocida con rodajas de manzana, canela y almendras.</p>
+                        <h2>Almuerzo:</h2>
+                        <p>- Tiras de carne magra salteadas con pimientos y cebolla, servidas con arroz integral.</p>
+                        <h2>Cena:</h2>
+                        <p>- Sopa de verduras con garbanzos y un trozo de pan integral.</p>
+
+                        <h1>Jueves:</h1>
+                        <h2>Desayuno:</h2>
+                        <p>- Yogur griego con granola y frutos rojos.</p>
+                        <h2>Almuerzo:</h2>
+                        <p>- Ensalada de lentejas con espinacas, tomate y aguacate.</p>
+                        <h2>Cena:</h2>
+                        <p>- Pechuga de pollo al horno con brócoli al vapor y puré de papas.</p>
+
+                        <h1>Viernes:</h1>
+                        <h2>Desayuno:</h2>
+                        <p>- Tostadas de pan integral con crema de cacahuate y plátano en rodajas.</p>
+                        <h2>Almuerzo:</h2>
+                        <p>- Salmón al horno con espárragos y quinoa cocida.</p>
+                        <h2>Cena:</h2>
+                        <p>- Ensalada de garbanzos con tomate, pepino, cebolla morada y aderezo de tahini.</p>
+
+                        <h1>Sábado:</h1>
+                        <h2>Desayuno:</h2>
+                        <p>- Tortilla de claras de huevo con espinacas y champiñones.</p>
+                        <h2>Almuerzo:</h2>
+                        <p>- Pollo al curry con arroz basmati y verduras al vapor.</p>
+                        <h2>Cena:</h2>
+                        <p>- Rollitos de sushi con relleno de salmón, aguacate y pepino.</p>
+
+                        <h1>Domingo:</h1>
+                        <h2>Desayuno:</h2>
+                        <p>- Smoothie de frutas con espinacas y semillas de chía.</p>
+                        <h2>Almuerzo:</h2>
+                        <p>- Hamburguesas de pavo a la parrilla con ensalada verde y papas asadas.</p>
+                        <h2>Cena:</h2>
+                        <p>- Pasta integral con salsa de tomate casera y albóndigas de carne magra.</p>
+                    </body>
+                    </html>
+                    """
+        nombre_archivo_pdf = 'dieta_para_mantener_peso_activo.pdf'
+        print("Presiona enter para generar el PDF de la dieta \n")
+        input()
+        # Convertir HTML a PDF utilizando la función separada
+        convertir_html_a_pdf(contenido, nombre_archivo_pdf)
+
 
     @Rule(Dieta(objetivo="perder peso"),
       Dieta(actividad_fisica="no"),
@@ -143,6 +311,78 @@ class SistemaExperto(KnowledgeEngine):
         print("- Desayuno: Té de hierbas con tostadas integrales y mermelada sin azúcar añadido.")
         print("- Almuerzo: Pollo a la parrilla con espárragos al vapor.")
         print("- Cena: Crema de calabaza con un trozo de pan integral.")
+        contenido = """
+        <html>
+        <head>
+            <title>Dieta para una vida sedentaria [Perder peso]</title>
+        </head>
+        <body>
+            <h1>Dieta para una vida sedentaria [Perder peso]</h1>
+            <h1>Lunes:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Té verde con tostadas integrales y aguacate.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Ensalada de espinacas, tomate y pechuga de pollo a la plancha.</p>
+            <h2>Cena:</h2>
+            <p>- Sopa de verduras con un trozo de pan integral.</p>
+
+            <h1>Martes:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Yogur natural con granola y frutos rojos.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Salmón al horno con brócoli al vapor.</p>
+            <h2>Cena:</h2>
+            <p>- Ensalada de garbanzos con tomate, pepino y aderezo de limón.</p>
+
+            <h1>Miércoles:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Batido de frutas con espinacas.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Pavo al horno con ensalada verde.</p>
+            <h2>Cena:</h2>
+            <p>- Tortilla de claras con champiñones y espinacas.</p>
+
+            <h1>Jueves:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Avena cocida con rodajas de manzana y canela.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Ensalada de quinoa con vegetales asados.</p>
+            <h2>Cena:</h2>
+            <p>- Pechuga de pollo a la plancha con espárragos.</p>
+
+            <h1>Viernes:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Tostadas integrales con mantequilla de almendras y plátano en rodajas.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Atún al natural con ensalada de tomate y aguacate.</p>
+            <h2>Cena:</h2>
+            <p>- Berenjenas al horno con queso fresco.</p>
+
+            <h1>Sábado:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Smoothie de bayas con espinacas.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Lentejas estofadas con verduras.</p>
+            <h2>Cena:</h2>
+            <p>- Ensalada de salmón ahumado con aguacate y pepino.</p>
+
+            <h1>Domingo:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Té de hierbas con tostadas integrales y mermelada sin azúcar añadido.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Pollo a la parrilla con espárragos al vapor.</p>
+            <h2>Cena:</h2>
+            <p>- Crema de calabaza con un trozo de pan integral.</p>
+        </body>
+        </html>
+        """
+        nombre_archivo_pdf = 'dieta_para_sedentario_perder_peso.pdf'
+        print("Presiona enter para generar el PDF de la dieta \n")
+        input()
+        # Convertir HTML a PDF utilizando la función separada
+        convertir_html_a_pdf(contenido, nombre_archivo_pdf)
+
+        
 
     @Rule(Dieta(objetivo="mantener peso"),
           Dieta(actividad_fisica="no"),
@@ -317,7 +557,11 @@ class SistemaExperto(KnowledgeEngine):
         </body>
         </html>
         """
-        pdfkit.from_string(contenido, 'dieta_embarazo.pdf')
+        # Nombre del archivo de salida PDF
+        nombre_archivo_pdf = 'dieta_para_embarazo.pdf'
+
+        # Convertir HTML a PDF utilizando la función separada
+        convertir_html_a_pdf(contenido, nombre_archivo_pdf)
 
     @Rule(Dieta(objetivo="salud"),
           Dieta(actividad_fisica="no"),
@@ -389,7 +633,12 @@ class SistemaExperto(KnowledgeEngine):
         </body>
         </html>
         """
-        pdfkit.from_string(contenido, 'dieta_embarazo_sedentaria.pdf')
+        nombre_archivo_pdf = 'dieta_para_embarazo_sedentaria.pdf'
+        print("Presiona enter para generar el PDF de la dieta \n")
+        input()
+        # Convertir HTML a PDF utilizando la función separada
+        convertir_html_a_pdf(contenido, nombre_archivo_pdf)
+       
     #---------------------PROBLEMAS MEDICOS-----------------------
     @Rule(Dieta(objetivo="salud"),
           Dieta(actividad_fisica="si"),
@@ -468,8 +717,13 @@ class SistemaExperto(KnowledgeEngine):
         </body>
         </html>
         """
+        nombre_archivo_pdf = 'dieta_para_embarazo_medico_fisico.pdf'
+        print("Presiona enter para generar el PDF de la dieta \n")
+        input()
+        # Convertir HTML a PDF utilizando la función separada
+        convertir_html_a_pdf(contenido, nombre_archivo_pdf)
 
-        pdfkit.from_string(contenido, 'dieta_embarazo_medico_fisico.pdf')
+        
     @Rule(Dieta(objetivo="salud"),
           Dieta(actividad_fisica="no"),
           Dieta(problemas_medicos="si"),
@@ -539,7 +793,13 @@ class SistemaExperto(KnowledgeEngine):
         </body>
         </html>
         """
-        pdfkit.from_string(contenido, 'dieta_embarazo_medico_sedentaria.pdf')
+        nombre_archivo_pdf = 'dieta_para_embarazo_nofisico_medico.pdf'
+        print("Presiona enter para generar el PDF de la dieta \n")
+        input()
+
+        # Convertir HTML a PDF utilizando la función separada
+        convertir_html_a_pdf(contenido, nombre_archivo_pdf)
+        
 
     #------------------Fin Dietas Embarazo ----------------------------------------------------
     # Regla por defecto

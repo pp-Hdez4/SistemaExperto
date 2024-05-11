@@ -391,49 +391,470 @@ class SistemaExperto(KnowledgeEngine):
     def dieta_para_sedentario_mantenerpeso(self):
         limpiar_pantalla()
         print("Dieta para una vida sedentaria: [mantener peso]")
-        print("- Controlar las porciones y evitar alimentos altos en calorías.")
-        print("- Priorizar alimentos integrales y frescos.")
-        print("- Limitar el consumo de alimentos procesados y azucarados.")  
+        print("\nLunes:")
+        print("- Desayuno: Huevos revueltos sobre tostada con aguacate y Yogurt griego sin grasa.")
+        print("- Almuerzo: Atún con queso Cottage y yogurt con frutas .")
+        print("- Cena: Verduras mixtas con hojas de tomate secaads al sol.")
+
+        print("\nMartes:")
+        print("- Desayuno: Licuado de platano con leche de almendra y una quesadilla de champiñones.")
+        print("- Almuerzo: Tacos de pescado con ensalada de col morada acompañada de limón y cilantro.")
+        print("- Cena: Sopa de lentejas con verduras, 2 tortillas y guacamole con totopos.")
+
+        print("\nMiércoles:")
+        print("- Desayuno: 2 tostadas de frijoles y Avena con leche y plátano.")
+        print("- Almuerzo: Tinga de pollo, media taza de arros y ensalada de lechuga y aguacate.")
+        print("- Cena: 2 Tacos de hongos al ajillo y sopa de verduras.")
+
+        print("\nJueves:")
+        print("- Desayuno: 2 Molletes de frijoles refritos con queso, jugo de naranja natural.")
+        print("- Almuerzo: 2 Tacos de carne asada y sopa de pasta con verduras.")
+        print("- Cena: Caldo tlalpeño y 2 Tortillas de maíz.")
+
+        print("\nViernes:")
+        print("- Desayuno: Yogur griego con nueces y arándanos.")
+        print("- Almuerzo: Tiras de pollo a la parrilla con ensalada de col.")
+        print("- Cena: 2 Quesadillas de espinacas con queso panela y  ensalada de aguacate y tomate.")
+
+        print("\nSábado:")
+        print("- Desayuno: 2 Tamales de elote pequeños y jugo de papaya natural.")
+        print("- Almuerzo: Pozole verde con pollo y 2 tostadas de pata con salsa roja.")
+        print("- Cena: Enchiladas suizas de pollo y ensalada de pepino y rabano con limón.")
+
+        print("\nDomingo:")
+        print("- Desayuno: Chilaquiles rojos con huevo estrellado y jugo de naranja natural.")
+        print("- Almuerzo: Barbacoa de res y consomé de barbacoa.")
+        print("- Cena: 2 Sopes de tinga de pollo y sopa de fideo con verduras.")
+        contenido = """
+        <html>
+        <head>
+            <title>Dieta para una vida sedentaria [Mantener peso]</title>
+        </head>
+        <body>
+            <h1>Dieta para una vida sedentaria [Mantener peso]</h1>
+
+            <h1>Lunes:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Huevos revueltos sobre tostada con aguacate y Yogurt griego sin grasa.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Atún con queso Cottage y yogurt con frutas.</p>
+            <h2>Cena:</h2>
+            <p>- Verduras mixtas con hojas de tomate secadas al sol.</p>
+
+            <h1>Martes:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Licuado de plátano con leche de almendra y una quesadilla de champiñones.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Tacos de pescado con ensalada de col morada acompañada de limón y cilantro.</p>
+            <h2>Cena:</h2>
+            <p>- Sopa de lentejas con verduras, 2 tortillas y guacamole con totopos.</p>
+
+            <h1>Miércoles:</h1>
+            <h2>Desayuno:</h2>
+            <p>- 2 tostadas de frijoles y Avena con leche y plátano.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Tinga de pollo, media taza de arroz y ensalada de lechuga y aguacate.</p>
+            <h2>Cena:</h2>
+            <p>- 2 Tacos de hongos al ajillo y sopa de verduras.</p>
+
+            <h1>Jueves:</h1>
+            <h2>Desayuno:</h2>
+            <p>- 2 Molletes de frijoles refritos con queso y jugo de naranja natural.</p>
+            <h2>Almuerzo:</h2>
+            <p>- 2 Tacos de carne asada y sopa de pasta con verduras.</p>
+            <h2>Cena:</h2>
+            <p>- Caldo tlalpeño y 2 tortillas de maíz.</p>
+
+            <h1>Viernes:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Yogur griego con nueces y arándanos.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Tiras de pollo a la parrilla con ensalada de col.</p>
+            <h2>Cena:</h2>
+            <p>- 2 Quesadillas de espinacas con queso panela y ensalada de aguacate y tomate.</p>
+
+            <h1>Sábado:</h1>
+            <h2>Desayuno:</h2>
+            <p>- 2 Tamales de elote pequeños y jugo de papaya natural.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Pozole verde con pollo y 2 tostadas de pata con salsa roja.</p>
+            <h2>Cena:</h2>
+            <p>- Enchiladas suizas de pollo y ensalada de pepino y rábano con limón.</p>
+
+            <h1>Domingo:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Chilaquiles rojos con huevo estrellado y jugo de naranja natural.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Barbacoa de res y consomé de barbacoa.</p>
+            <h2>Cena:</h2>
+            <p>- 2 Sopes de tinga de pollo y sopa de fideo con verduras.</p>
+        </body>
+        </html>
+        """
+
+        nombre_archivo_pdf = 'dieta_para_sedentario_mantenerpeso.pdf'
+        print("Presiona enter para generar el PDF de la dieta \n")
+        input()
+        # Convertir HTML a PDF utilizando la función separada
+        convertir_html_a_pdf(contenido, nombre_archivo_pdf)
 
 
     @Rule(Dieta(objetivo="ganar peso"),
-      Dieta(actividad_fisica="no"),
-      Dieta(problemas_medicos="no"),
-      Dieta(embarazo="no"))
+        Dieta(actividad_fisica="no"),
+        Dieta(problemas_medicos="no"),
+        Dieta(embarazo="no"))
     def dieta_para_sedentario_ganarpeso(self):
         limpiar_pantalla()
         print("Dieta para una vida sedentaria: [ganar peso]")
-        print("- Controlar las porciones y evitar alimentos altos en calorías.")
-        print("- Priorizar alimentos integrales y frescos.")
-        print("- Limitar el consumo de alimentos procesados y azucarados.")    
+        print("\nLunes:")
+        print("- Desayuno: Huevos a la mexicana, media taza de frijoles refritos, 3 tortillas y café o té sin azúcar.")
+        print(
+            "- Almuerzo: Ensalada de nopales con tomate, cebolla, aguacate y limón, pollo a la plancha y una taza de arroz blanco.")
+        print("- Cena: Caldo de verduras con pollo, 2 tortillas, jícama y zanahoria en bastones con limón y chile en polvo.")
+
+        print("\nMartes:")
+        print("- Desayuno: 2 Quesadillas de champiñones y queso panela.")
+        print("- Almuerzo: Tacos de pescado empanizado con ensalada de col morada acompañada de limón y cilantro.")
+        print("- Cena: Sopa de lentejas con verduras, 2 tortillas y guacamole con totopos.")
+
+        print("\nMiércoles:")
+        print("- Desayuno: 2 Tostadas de frijoles y avena con leche y plátano.")
+        print("- Almuerzo: Tinga de pollo, media taza de arroz integral y ensalada de lechuga y aguacate.")
+        print("- Cena: 2 Tacos de hongos al ajillo y sopa de verduras.")
+
+        print("\nJueves:")
+        print("- Desayuno: 2 Molletes de frijoles refritos con queso, jugo de naranja natural.")
+        print("- Almuerzo: 2 Tacos de carne asada y sopa de pasta con verduras.")
+        print("- Cena: Caldo tlalpeño y 2 tortillas de maíz.")
+
+        print("\nViernes:")
+        print("- Desayuno: Yogur griego con nueces y arándanos.")
+        print("- Almuerzo: Tiras de pollo a la parrilla con ensalada de col.")
+        print("- Cena: 2 Quesadillas de espinacas con queso panela y ensalada de aguacate y tomate.")
+
+        print("\nSábado:")
+        print("- Desayuno: 2 Tamales de elote pequeños y jugo de papaya natural.")
+        print("- Almuerzo: Pozole rojo con pollo y 2 tostadas de cueritos con salsa verde.")
+        print("- Cena: Enchiladas suizas de pollo y ensalada de pepino y rábano con limón.")
+
+        print("\nDomingo:")
+        print("- Desayuno: Chilaquiles rojos con huevo estrellado y jugo de naranja natural.")
+        print("- Almuerzo: Barbacoa de res y consomé de barbacoa.")
+        print("- Cena: 2 Sopes de tinga de pollo y sopa de fideo con verduras.")
+        contenido = """
+        <html>
+        <head>
+            <title>Dieta para una vida sedentaria</title>
+        </head>
+        <body>
+            <h1>Lunes:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Huevos a la mexicana, media taza de frijoles refritos, 3 tortillas y café o té sin azúcar.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Ensalada de nopales con tomate, cebolla, aguacate y limón, pollo a la plancha y una taza de arroz blanco.</p>
+            <h2>Cena:</h2>
+            <p>- Caldo de verduras con pollo, 2 tortillas, jícama y zanahoria en bastones con limón y chile en polvo.</p>
+
+            <h1>Martes:</h1>
+            <h2>Desayuno:</h2>
+            <p>- 2 Quesadillas de champiñones y queso panela.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Tacos de pescado empanizado con ensalada de col morada acompañada de limón y cilantro.</p>
+            <h2>Cena:</h2>
+            <p>- Sopa de lentejas con verduras, 2 tortillas y guacamole con totopos.</p>
+
+            <h1>Miércoles:</h1>
+            <h2>Desayuno:</h2>
+            <p>- 2 Tostadas de frijoles y avena con leche y plátano.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Tinga de pollo, media taza de arroz integral y ensalada de lechuga y aguacate.</p>
+            <h2>Cena:</h2>
+            <p>- 2 Tacos de hongos al ajillo y sopa de verduras.</p>
+
+            <h1>Jueves:</h1>
+            <h2>Desayuno:</h2>
+            <p>- 2 Molletes de frijoles refritos con queso, jugo de naranja natural.</p>
+            <h2>Almuerzo:</h2>
+            <p>- 2 Tacos de carne asada y sopa de pasta con verduras.</p>
+            <h2>Cena:</h2>
+            <p>- Caldo tlalpeño y 2 tortillas de maíz.</p>
+
+            <h1>Viernes:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Yogur griego con nueces y arándanos.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Tiras de pollo a la parrilla con ensalada de col.</p>
+            <h2>Cena:</h2>
+            <p>- 2 Quesadillas de espinacas con queso panela y ensalada de aguacate y tomate.</p>
+
+            <h1>Sábado:</h1>
+            <h2>Desayuno:</h2>
+            <p>- 2 Tamales de elote pequeños y jugo de papaya natural.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Pozole rojo con pollo y 2 tostadas de cueritos con salsa verde.</p>
+            <h2>Cena:</h2>
+            <p>- Enchiladas suizas de pollo y ensalada de pepino y rábano con limón.</p>
+
+            <h1>Domingo:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Chilaquiles rojos con huevo estrellado y jugo de naranja natural.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Barbacoa de res y consomé de barbacoa.</p>
+            <h2>Cena:</h2>
+            <p>- 2 Sopes de tinga de pollo y sopa de fideo con verduras.</p>
+        </body>
+        </html>
+        """
+        nombre_archivo_pdf = 'dieta_para_sedentario_ganarpeso.pdf'
+        print("Presiona enter para generar el PDF de la dieta \n")
+        input()
+        # Convertir HTML a PDF utilizando la función separada
+        convertir_html_a_pdf(contenido, nombre_archivo_pdf)
 
 
+# --------------------Fin dietas sin problemas medicos---------------------------------
 
-    #--------------------Fin dietas sin problemas medicos---------------------------------
-
-    #------------------Dietas con problemas medicos / ACTIVIDAD FISIFCA = SI--------------------------------------
+# ------------------Dietas con problemas medicos / ACTIVIDAD FISIFCA = SI--------------------------------------
     @Rule(Dieta(objetivo="ganar peso"),
-          Dieta(actividad_fisica="si"),
-          Dieta(problemas_medicos="si"),
-          Dieta(embarazo="no"))
+        Dieta(actividad_fisica="si"),
+        Dieta(problemas_medicos="si"),
+        Dieta(embarazo="no"))
     def dieta_para_ganar_peso(self):
         limpiar_pantalla()
         print("Dieta para ganar peso: [Problemas medicos]")
-        print("- Aumentar la ingesta de calorías con alimentos nutritivos.")
-        print("- Incluir carbohidratos complejos, proteínas y grasas saludables.")
-        print("- Realizar comidas frecuentes y snacks nutritivos.")
+
+        print("\nLunes:")
+        print("- Desayuno: Huevos a la mexicana, media taza de frijoles refritos, 3 tortillas y café o té sin azúcar.")
+        print(
+            "- Almuerzo: Ensalada de nopales con tomate, cebolla, aguacate y limón, pollo a la plancha y una taza de arroz blanco.")
+        print("- Cena: Caldo de verduras con pollo, 2 tortillas, jícama y zanahoria en bastones con limón y chile en polvo.")
+
+        print("\nMartes:")
+        print("- Desayuno: 2 Quesadillas de champiñones y queso panela.")
+        print("- Almuerzo: Tacos de pescado empanizado con ensalada de col morada acompañada de limón y cilantro.")
+        print("- Cena: Sopa de lentejas con verduras, 2 tortillas y guacamole con totopos.")
+
+        print("\nMiércoles:")
+        print("- Desayuno: 2 Tostadas de frijoles y avena con leche y plátano.")
+        print("- Almuerzo: Tinga de pollo, media taza de arroz integral y ensalada de lechuga y aguacate.")
+        print("- Cena: 2 Tacos de hongos al ajillo y sopa de verduras.")
+
+        print("\nJueves:")
+        print("- Desayuno: 2 Molletes de frijoles refritos con queso, jugo de naranja natural.")
+        print("- Almuerzo: 2 Tacos de carne asada y sopa de pasta con verduras.")
+        print("- Cena: Caldo tlalpeño y 2 tortillas de maíz.")
+
+        print("\nViernes:")
+        print("- Desayuno: Yogur griego con nueces y arándanos.")
+        print("- Almuerzo: Tiras de pollo a la parrilla con ensalada de col.")
+        print("- Cena: 2 Quesadillas de espinacas con queso panela y ensalada de aguacate y tomate.")
+
+        print("\nSábado:")
+        print("- Desayuno: 2 Tamales de elote pequeños y jugo de papaya natural.")
+        print("- Almuerzo: Pozole rojo con pollo y 2 tostadas de cueritos con salsa verde.")
+        print("- Cena: Enchiladas suizas de pollo y ensalada de pepino y rábano con limón.")
+
+        print("\nDomingo:")
+        print("- Desayuno: Chilaquiles rojos con huevo estrellado y jugo de naranja natural.")
+        print("- Almuerzo: Barbacoa de res y consomé de barbacoa.")
+        print("- Cena: 2 Sopes de tinga de pollo y sopa de fideo con verduras.")
+        contenido = """
+        <html>
+        <head>
+            <title>Dieta para ganar peso: [Problemas médicos]</title>
+        </head>
+        <body>
+            <h1>Dieta para ganar peso: [Problemas médicos]</h1>
+
+            <h1>Lunes:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Huevos a la mexicana, media taza de frijoles refritos, 3 tortillas y café o té sin azúcar.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Ensalada de nopales con tomate, cebolla, aguacate y limón, pollo a la plancha y una taza de arroz blanco.</p>
+            <h2>Cena:</h2>
+            <p>- Caldo de verduras con pollo, 2 tortillas, jícama y zanahoria en bastones con limón y chile en polvo.</p>
+
+            <h1>Martes:</h1>
+            <h2>Desayuno:</h2>
+            <p>- 2 Quesadillas de champiñones y queso panela.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Tacos de pescado empanizado con ensalada de col morada acompañada de limón y cilantro.</p>
+            <h2>Cena:</h2>
+            <p>- Sopa de lentejas con verduras, 2 tortillas y guacamole con totopos.</p>
+
+            <h1>Miércoles:</h1>
+            <h2>Desayuno:</h2>
+            <p>- 2 Tostadas de frijoles y avena con leche y plátano.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Tinga de pollo, media taza de arroz integral y ensalada de lechuga y aguacate.</p>
+            <h2>Cena:</h2>
+            <p>- 2 Tacos de hongos al ajillo y sopa de verduras.</p>
+
+            <h1>Jueves:</h1>
+            <h2>Desayuno:</h2>
+            <p>- 2 Molletes de frijoles refritos con queso, jugo de naranja natural.</p>
+            <h2>Almuerzo:</h2>
+            <p>- 2 Tacos de carne asada y sopa de pasta con verduras.</p>
+            <h2>Cena:</h2>
+            <p>- Caldo tlalpeño y 2 tortillas de maíz.</p>
+
+            <h1>Viernes:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Yogur griego con nueces y arándanos.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Tiras de pollo a la parrilla con ensalada de col.</p>
+            <h2>Cena:</h2>
+            <p>- 2 Quesadillas de espinacas con queso panela y ensalada de aguacate y tomate.</p>
+
+            <h1>Sábado:</h1>
+            <h2>Desayuno:</h2>
+            <p>- 2 Tamales de elote pequeños y jugo de papaya natural.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Pozole rojo con pollo y 2 tostadas de cueritos con salsa verde.</p>
+            <h2>Cena:</h2>
+            <p>- Enchiladas suizas de pollo y ensalada de pepino y rábano con limón.</p>
+
+            <h1>Domingo:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Chilaquiles rojos con huevo estrellado y jugo de naranja natural.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Barbacoa de res y consomé de barbacoa.</p>
+            <h2>Cena:</h2>
+            <p>- 2 Sopes de tinga de pollo y sopa de fideo con verduras.</p>
+        </body>
+        </html>
+        """
+        nombre_archivo_pdf = 'dieta_para_ganar_peso.pdf'
+        print("Presiona enter para generar el PDF de la dieta \n")
+        input()
+        # Convertir HTML a PDF utilizando la función separada
+        convertir_html_a_pdf(contenido, nombre_archivo_pdf)
+
 
     @Rule(Dieta(objetivo="perder peso"),
-          Dieta(actividad_fisica="si"),
-          Dieta(problemas_medicos="si"),
-          Dieta(embarazo="no"))
+        Dieta(actividad_fisica="si"),
+        Dieta(problemas_medicos="si"),
+        Dieta(embarazo="no"))
     def dieta_para_perder_peso(self):
         limpiar_pantalla()
         print("Dieta para perder peso: [Problemas medicos]")
-        print("- Aumentar la ingesta de calorías con alimentos nutritivos.")
-        print("- Incluir carbohidratos complejos, proteínas y grasas saludables.")
-        print("- Realizar comidas frecuentes y snacks nutritivos.")
+        print("\nLunes:")
+        print(
+            "- Desayuno: Huevos a la mexicana (2 huevos), media taza de frijoles refritos, 2 tortillas de maíz y café o té sin azúcar.")
+        print(
+            "- Almuerzo: Ensalada de nopales con tomate, cebolla, aguacate y limón, pollo a la plancha (100g) y 1/2 taza de arroz blanco.")
+        print(
+            "- Cena: Caldo de verduras con pollo, 1 tortilla de maíz, jícama y zanahoria en bastones con limón y chile en polvo.")
 
+        print("\nMartes:")
+        print(
+            "- Desayuno: Licuado de plátano con leche de almendra (1 plátano, 1 taza de leche de almendra) y 2 tostadas de frijoles.")
+        print(
+            "- Almuerzo: Tacos de pescado (2 tortillas de maíz con filete de pescado al vapor), ensalada de col morada con limón y cilantro.")
+        print("- Cena: Sopa de lentejas con verduras, 1 tortilla de maíz y guacamole con totopos.")
+
+        print("\nMiércoles:")
+        print(
+            "- Desayuno: Avena con leche y plátano (1/2 taza de avena, 1 taza de leche, 1 plátano) y 1 quesadilla de champiñones.")
+        print(
+            "- Almuerzo: Tinga de pollo (100g de pollo deshebrado con salsa de tomate y chipotle), 1/2 taza de arroz integral, ensalada de lechuga y aguacate.")
+        print(
+            "- Cena: Tacos de hongos al ajillo (2 tortillas de maíz con hongos salteados con ajo y perejil) y sopa de verduras.")
+
+        print("\nJueves:")
+        print("- Desayuno: Molletes (2 bollos de pan integral con frijoles refritos y queso fresco) y jugo de naranja natural.")
+        print(
+            "- Almuerzo: Enchiladas de pollo con salsa roja (2 tortillas de maíz rellenas de pollo deshebrado y bañadas en salsa roja) y ensalada de lechuga y tomate.")
+        print("- Cena: Caldo tlalpeño (sopa de pollo con garbanzos, zanahoria y chipotle) y 1 tortilla de maíz.")
+
+        print("\nViernes:")
+        print("- Desayuno: Yogur griego con nueces y arándanos.")
+        print("- Almuerzo: Tiras de pollo a la parrilla (100g) con ensalada de col.")
+        print(
+            "- Cena: Quesadillas de espinacas con queso panela (2 tortillas de maíz con espinacas cocidas y queso panela) y ensalada de aguacate y tomate.")
+
+        print("\nSábado:")
+        print("- Desayuno: Tamales de elote (2 tamales pequeños) y jugo de papaya natural.")
+        print("- Almuerzo: Pozole verde con pollo (1 taza) y 2 tostadas de pata con salsa roja.")
+        print(
+            "- Cena: Enchiladas suizas de pollo (2 tortillas de maíz rellenas de pollo deshebrado y cubiertas con salsa verde y crema) y ensalada de pepino y rábano con limón.")
+
+        print("\nDomingo:")
+        print("- Desayuno: Chilaquiles rojos con huevo estrellado y jugo de naranja natural.")
+        print("- Almuerzo: Barbacoa de res (150g) y consomé de barbacoa.")
+        print(
+            "- Cena: Sopes de tinga de pollo (2 sopes pequeños con tinga de pollo, lechuga y crema) y sopa de fideo con verduras.")
+        contenido = """
+        <html>
+        <head>
+            <title>Dieta para perder peso: [Problemas médicos]</title>
+        </head>
+        <body>
+            <h1>Dieta para perder peso: [Problemas médicos]</h1>
+
+            <h1>Lunes:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Huevos a la mexicana (2 huevos), media taza de frijoles refritos, 2 tortillas de maíz y café o té sin azúcar.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Ensalada de nopales con tomate, cebolla, aguacate y limón, pollo a la plancha (100g) y 1/2 taza de arroz blanco.</p>
+            <h2>Cena:</h2>
+            <p>- Caldo de verduras con pollo, 1 tortilla de maíz, jícama y zanahoria en bastones con limón y chile en polvo.</p>
+
+            <h1>Martes:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Licuado de plátano con leche de almendra (1 plátano, 1 taza de leche de almendra) y 2 tostadas de frijoles.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Tacos de pescado (2 tortillas de maíz con filete de pescado al vapor), ensalada de col morada con limón y cilantro.</p>
+            <h2>Cena:</h2>
+            <p>- Sopa de lentejas con verduras, 1 tortilla de maíz y guacamole con totopos.</p>
+
+            <h1>Miércoles:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Avena con leche y plátano (1/2 taza de avena, 1 taza de leche, 1 plátano) y 1 quesadilla de champiñones.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Tinga de pollo (100g de pollo deshebrado con salsa de tomate y chipotle), 1/2 taza de arroz integral, ensalada de lechuga y aguacate.</p>
+            <h2>Cena:</h2>
+            <p>- Tacos de hongos al ajillo (2 tortillas de maíz con hongos salteados con ajo y perejil) y sopa de verduras.</p>
+
+            <h1>Jueves:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Molletes (2 bollos de pan integral con frijoles refritos y queso fresco) y jugo de naranja natural.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Enchiladas de pollo con salsa roja (2 tortillas de maíz rellenas de pollo deshebrado y bañadas en salsa roja) y ensalada de lechuga y tomate.</p>
+            <h2>Cena:</h2>
+            <p>- Caldo tlalpeño (sopa de pollo con garbanzos, zanahoria y chipotle) y 1 tortilla de maíz.</p>
+
+            <h1>Viernes:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Yogur griego con nueces y arándanos.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Tiras de pollo a la parrilla (100g) con ensalada de col.</p>
+            <h2>Cena:</h2>
+            <p>- Quesadillas de espinacas con queso panela (2 tortillas de maíz con espinacas cocidas y queso panela) y ensalada de aguacate y tomate.</p>
+
+            <h1>Sábado:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Tamales de elote (2 tamales pequeños) y jugo de papaya natural.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Pozole verde con pollo (1 taza) y 2 tostadas de pata con salsa roja.</p>
+            <h2>Cena:</h2>
+            <p>- Enchiladas suizas de pollo (2 tortillas de maíz rellenas de pollo deshebrado y cubiertas con salsa verde y crema) y ensalada de pepino y rábano con limón.</p>
+
+            <h1>Domingo:</h1>
+            <h2>Desayuno:</h2>
+            <p>- Chilaquiles rojos con huevo estrellado y jugo de naranja natural.</p>
+            <h2>Almuerzo:</h2>
+            <p>- Barbacoa de res (150g) y consomé de barbacoa.</p>
+            <h2>Cena:</h2>
+            <p>- Sopes de tinga de pollo (2 sopes pequeños con tinga de pollo, lechuga y crema) y sopa de fideo con verduras.</p>
+        </body>
+        </html>
+        """
+        nombre_archivo_pdf = 'dieta_para_perder_peso.pdf'
+        print("Presiona enter para generar el PDF de la dieta \n")
+        input()
+        # Convertir HTML a PDF utilizando la función separada
+        convertir_html_a_pdf(contenido, nombre_archivo_pdf)
 
     # -------------------------------------------------------------------------------
     @Rule(Dieta(objetivo="mantener peso"),

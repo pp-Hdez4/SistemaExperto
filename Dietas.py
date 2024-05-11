@@ -197,182 +197,295 @@ class SistemaExperto(KnowledgeEngine):
 
     # -------------------------------------------------------------------------------
     @Rule(Dieta(objetivo="mantener peso"),
-          Dieta(actividad_fisica="si"),
-          Dieta(problemas_medicos="si"),
-          Dieta(embarazo="no"))
-
+        Dieta(actividad_fisica="si"),
+        Dieta(problemas_medicos="si"),
+        Dieta(embarazo="no"))
     def dieta_para_mantener_peso(self):
         limpiar_pantalla()
-        print("Dieta para mantener peso con problemas médicos:")
-        print("\nLunes:")
-        print("- Desayuno: Tostadas integrales con aguacate y huevo pochado.")
-        print("- Almuerzo: Sopa de lentejas con verduras y un poco de queso parmesano.")
-        print("- Cena: Salmón a la plancha con espárragos y batata al horno.")
+        contenido = """
+        <html>
+        <head><title>Dieta para mantener peso con problemas médicos</title></head>
+        <body>
+        <h1>Dieta para mantener peso con problemas médicos</h1>
+        <h1>Lunes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Tostadas integrales con aguacate y huevo pochado.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Sopa de lentejas con verduras y un poco de queso parmesano.</p>
+        <h2>Cena:</h2>
+        <p>- Salmón a la plancha con espárragos y batata al horno.</p>
 
-        print("\nMartes:")
-        print("- Desayuno: Batido de proteínas con espinacas y plátano.")
-        print("- Almuerzo: Ensalada de garbanzos, pepino y tomate con vinagreta de limón.")
-        print("- Cena: Pescado al horno con espárragos y zanahorias al vapor.")
+        <h1>Martes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Batido de proteínas con espinacas y plátano.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Ensalada de garbanzos, pepino y tomate con vinagreta de limón.</p>
+        <h2>Cena:</h2>
+        <p>- Pescado al horno con espárragos y zanahorias al vapor.</p>
 
-        print("\nMiércoles:")
-        print("- Desayuno: Yogur griego con nueces y arándanos.")
-        print("- Almuerzo: Tiras de pollo a la parrilla con ensalada de col.")
-        print("- Cena: Berenjenas rellenas de carne magra y verduras.")
+        <h1>Miércoles:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Yogur griego con nueces y arándanos.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Tiras de pollo a la parrilla con ensalada de col.</p>
+        <h2>Cena:</h2>
+        <p>- Berenjenas rellenas de carne magra y verduras.</p>
 
-        print("\nJueves:")
-        print("- Desayuno: Batido de frutas con yogur bajo en grasa.")
-        print("- Almuerzo: Salmón al horno con brócoli al vapor.")
-        print("- Cena: Ensalada de quinoa con vegetales asados.")
+        <h1>Jueves:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Batido de frutas con yogur bajo en grasa.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Salmón al horno con brócoli al vapor.</p>
+        <h2>Cena:</h2>
+        <p>- Ensalada de quinoa con vegetales asados.</p>
 
-        print("\nViernes:")
-        print("- Desayuno: Avena cocida con trozos de manzana y canela.")
-        print("- Almuerzo: Filete de pavo a la plancha con espárragos a la parrilla.")
-        print("- Cena: Sopa de verduras con pollo desmenuzado.")
+        <h1>Viernes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Avena cocida con trozos de manzana y canela.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Filete de pavo a la plancha con espárragos a la parrilla.</p>
+        <h2>Cena:</h2>
+        <p>- Sopa de verduras con pollo desmenuzado.</p>
 
-        print("\nSábado:")
-        print("- Desayuno: Smoothie de espinacas, piña y jengibre.")
-        print("- Almuerzo: Pollo al curry con arroz integral y verduras al vapor.")
-        print("- Cena: Pechuga de pollo a la plancha con espárragos al vapor.")
+        <h1>Sábado:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Smoothie de espinacas, piña y jengibre.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Pollo al curry con arroz integral y verduras al vapor.</p>
+        <h2>Cena:</h2>
+        <p>- Pechuga de pollo a la plancha con espárragos al vapor.</p>
 
-        print("\nDomingo:")
-        print("- Desayuno: Tortilla de claras de huevo con espinacas y tomates cherry.")
-        print("- Almuerzo: Ensalada de espinacas, queso feta y nueces.")
-        print("- Cena: Brochetas de camarones con vegetales a la parrilla.")
+        <h1>Domingo:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Tortilla de claras de huevo con espinacas y tomates cherry.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Ensalada de espinacas, queso feta y nueces.</p>
+        <h2>Cena:</h2>
+        <p>- Brochetas de camarones con vegetales a la parrilla.</p>
+        </body>
+        </html>
+        """
+        pdfkit.from_string(contenido, 'dieta_mantener_peso.pdf')
 
 
     # -----------------------------------------Problemas medicos/ Sin actividad fisica ------------------------------------------------------
     @Rule(Dieta(objetivo="perder peso"),
-          Dieta(actividad_fisica="no"),
-          Dieta(problemas_medicos="si"),
-          Dieta(embarazo="no"))
-
+        Dieta(actividad_fisica="no"),
+        Dieta(problemas_medicos="si"),
+        Dieta(embarazo="no"))
     def dieta_para_sedentario_medico(self):
         limpiar_pantalla()
-        print("Dieta para una vida sedentaria: [Perder Peso - Problemas médicos]")      
-        print("\nLunes:")
-        print("- Desayuno: Yogur natural con trozos de frutas frescas.")
-        print("- Almuerzo: Ensalada de pollo a la parrilla con vegetales variados.")
-        print("- Cena: Pescado al horno con brócoli al vapor.")
+        contenido = """
+        <html>
+        <head><title>Dieta para una vida sedentaria: [Perder Peso - Problemas médicos]</title></head>
+        <body>
+        <h1>Dieta para una vida sedentaria: [Perder Peso - Problemas médicos]</h1>
+        <h1>Lunes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Yogur natural con trozos de frutas frescas.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Ensalada de pollo a la parrilla con vegetales variados.</p>
+        <h2>Cena:</h2>
+        <p>- Pescado al horno con brócoli al vapor.</p>
 
-        print("\nMartes:")
-        print("- Desayuno: Batido de espinacas, plátano y leche de almendras.")
-        print("- Almuerzo: Filete de ternera a la plancha con ensalada de tomate y pepino.")
-        print("- Cena: Sopa de verduras casera.")
+        <h1>Martes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Batido de espinacas, plátano y leche de almendras.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Filete de ternera a la plancha con ensalada de tomate y pepino.</p>
+        <h2>Cena:</h2>
+        <p>- Sopa de verduras casera.</p>
 
-        print("\nMiércoles:")
-        print("- Desayuno: Tostadas de pan integral con aguacate y tomate.")
-        print("- Almuerzo: Lentejas estofadas con verduras.")
-        print("- Cena: Pollo al horno con espárragos.")
+        <h1>Miércoles:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Tostadas de pan integral con aguacate y tomate.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Lentejas estofadas con verduras.</p>
+        <h2>Cena:</h2>
+        <p>- Pollo al horno con espárragos.</p>
 
-        print("\nJueves:")
-        print("- Desayuno: Avena cocida con nueces y un poco de miel.")
-        print("- Almuerzo: Salmón a la plancha con ensalada de espinacas y quinoa.")
-        print("- Cena: Ensalada de garbanzos con atún en agua.")
+        <h1>Jueves:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Avena cocida con nueces y un poco de miel.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Salmón a la plancha con ensalada de espinacas y quinoa.</p>
+        <h2>Cena:</h2>
+        <p>- Ensalada de garbanzos con atún en agua.</p>
 
-        print("\nViernes:")
-        print("- Desayuno: Omelette de claras de huevo con espinacas y champiñones.")
-        print("- Almuerzo: Tortilla de patatas con ensalada verde.")
-        print("- Cena: Pavo al horno con puré de calabaza.")
+        <h1>Viernes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Omelette de claras de huevo con espinacas y champiñones.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Tortilla de patatas con ensalada verde.</p>
+        <h2>Cena:</h2>
+        <p>- Pavo al horno con puré de calabaza.</p>
 
-        print("\nSábado:")
-        print("- Desayuno: Batido de proteínas con frutas y un puñado de almendras.")
-        print("- Almuerzo: Ensalada de pasta integral con vegetales asados.")
-        print("- Cena: Sopa de calabaza y zanahoria.")
+        <h1>Sábado:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Batido de proteínas con frutas y un puñado de almendras.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Ensalada de pasta integral con vegetales asados.</p>
+        <h2>Cena:</h2>
+        <p>- Sopa de calabaza y zanahoria.</p>
 
-        print("\nDomingo:")
-        print("- Desayuno: Pan integral con queso fresco y rodajas de tomate.")
-        print("- Almuerzo: Pollo asado con patatas al horno y ensalada mixta.")
-        print("- Cena: Pescado al horno con espárragos y batata al vapor.")
+        <h1>Domingo:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Pan integral con queso fresco y rodajas de tomate.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Pollo asado con patatas al horno y ensalada mixta.</p>
+        <h2>Cena:</h2>
+        <p>- Pescado al horno con espárragos y batata al vapor.</p>
+        </body>
+        </html>
+        """
+        pdfkit.from_string(contenido, 'dieta_sedentario_medico.pdf')
     
 
 
     @Rule(Dieta(objetivo="mantener peso"),
-          Dieta(actividad_fisica="no"),
-          Dieta(problemas_medicos="si"),
-          Dieta(embarazo="no"))
-
+        Dieta(actividad_fisica="no"),
+        Dieta(problemas_medicos="si"),
+        Dieta(embarazo="no"))
     def dieta_para_sedentario_medico_mantenerpeso(self):
         limpiar_pantalla()
-        print("Dieta para una vida sedentaria: [Mantener Peso - Problemas médicos]")
-        print("\nLunes:")
-        print("- Desayuno: Yogur natural con trozos de frutas frescas y granola.")
-        print("- Almuerzo: Ensalada de quinoa con vegetales asados.")
-        print("- Cena: Pechuga de pollo a la plancha con espárragos al vapor.")
+        contenido = """
+        <html>
+        <head><title>Dieta para una vida sedentaria: [Mantener Peso - Problemas médicos]</title></head>
+        <body>
+        <h1>Dieta para una vida sedentaria: [Mantener Peso - Problemas médicos]</h1>
+        <h1>Lunes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Yogur natural con trozos de frutas frescas y granola.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Ensalada de quinoa con vegetales asados.</p>
+        <h2>Cena:</h2>
+        <p>- Pechuga de pollo a la plancha con espárragos al vapor.</p>
 
-        print("\nMartes:")
-        print("- Desayuno: Batido de espinacas, piña y jengibre.")
-        print("- Almuerzo: Sopa de verduras casera.")
-        print("- Cena: Salmón al horno con brócoli al vapor.")
+        <h1>Martes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Batido de espinacas, piña y jengibre.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Sopa de verduras casera.</p>
+        <h2>Cena:</h2>
+        <p>- Salmón al horno con brócoli al vapor.</p>
 
-        print("\nMiércoles:")
-        print("- Desayuno: Tostadas de pan integral con aguacate y huevo pochado.")
-        print("- Almuerzo: Ensalada de garbanzos con atún en agua.")
-        print("- Cena: Berenjenas al horno con tomate y queso fresco.")
+        <h1>Miércoles:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Tostadas de pan integral con aguacate y huevo pochado.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Ensalada de garbanzos con atún en agua.</p>
+        <h2>Cena:</h2>
+        <p>- Berenjenas al horno con tomate y queso fresco.</p>
 
-        print("\nJueves:")
-        print("- Desayuno: Avena cocida con trozos de manzana y canela.")
-        print("- Almuerzo: Filete de pavo a la plancha con ensalada de espinacas y nueces.")
-        print("- Cena: Tortilla de claras de huevo con espárragos.")
+        <h1>Jueves:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Avena cocida con trozos de manzana y canela.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Filete de pavo a la plancha con ensalada de espinacas y nueces.</p>
+        <h2>Cena:</h2>
+        <p>- Tortilla de claras de huevo con espárragos.</p>
 
-        print("\nViernes:")
-        print("- Desayuno: Batido de proteínas con plátano y un puñado de almendras.")
-        print("- Almuerzo: Ensalada de pollo con quinoa y vegetales frescos.")
-        print("- Cena: Pescado al horno con espárragos y batata al vapor.")
+        <h1>Viernes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Batido de proteínas con plátano y un puñado de almendras.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Ensalada de pollo con quinoa y vegetales frescos.</p>
+        <h2>Cena:</h2>
+        <p>- Pescado al horno con espárragos y batata al vapor.</p>
 
-        print("\nSábado:")
-        print("- Desayuno: Pan integral con queso cottage y rodajas de tomate.")
-        print("- Almuerzo: Lentejas estofadas con verduras.")
-        print("- Cena: Pollo al curry con arroz integral y vegetales al vapor.")
+        <h1>Sábado:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Pan integral con queso cottage y rodajas de tomate.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Lentejas estofadas con verduras.</p>
+        <h2>Cena:</h2>
+        <p>- Pollo al curry con arroz integral y vegetales al vapor.</p>
 
-        print("\nDomingo:")
-        print("- Desayuno: Omelette de claras de huevo con espinacas y champiñones.")
-        print("- Almuerzo: Filete de salmón a la plancha con ensalada de espinacas y aguacate.")
-        print("- Cena: Sopa de calabaza y zanahoria.")
+        <h1>Domingo:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Omelette de claras de huevo con espinacas y champiñones.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Filete de salmón a la plancha con ensalada de espinacas y aguacate.</p>
+        <h2>Cena:</h2>
+        <p>- Sopa de calabaza y zanahoria.</p>
+        </body>
+        </html>
+        """
+        pdfkit.from_string(contenido, 'dieta_sedentario_medico_mantenerpeso.pdf')
 
 
 
     @Rule(Dieta(objetivo="ganar peso"),
-          Dieta(actividad_fisica="no"),
-          Dieta(problemas_medicos="si"),
-          Dieta(embarazo="no"))
-   
+        Dieta(actividad_fisica="no"),
+        Dieta(problemas_medicos="si"),
+        Dieta(embarazo="no"))
     def dieta_para_sedentario_medico_ganarpeso(self):
         limpiar_pantalla()
-        print("Dieta para una vida sedentaria: [Ganar Peso - Problemas médicos]")        
-        print("\nLunes:")
-        print("- Desayuno: Batido de plátano, avena y leche entera.")
-        print("- Almuerzo: Pasta integral con salsa de tomate y albóndigas de carne.")
-        print("- Cena: Salmón al horno con batata asada.")
+        contenido = """
+        <html>
+        <head><title>Dieta para una vida sedentaria: [Ganar Peso - Problemas médicos]</title></head>
+        <body>
+        <h1>Dieta para una vida sedentaria: [Ganar Peso - Problemas médicos]</h1>
+        <h1>Lunes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Batido de plátano, avena y leche entera.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Pasta integral con salsa de tomate y albóndigas de carne.</p>
+        <h2>Cena:</h2>
+        <p>- Salmón al horno con batata asada.</p>
 
-        print("\nMartes:")
-        print("- Desayuno: Tostadas de pan integral con mantequilla de maní y plátano en rodajas.")
-        print("- Almuerzo: Arroz con pollo al curry y verduras salteadas.")
-        print("- Cena: Ensalada de pasta con atún, mayonesa y guisantes.")
+        <h1>Martes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Tostadas de pan integral con mantequilla de maní y plátano en rodajas.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Arroz con pollo al curry y verduras salteadas.</p>
+        <h2>Cena:</h2>
+        <p>- Ensalada de pasta con atún, mayonesa y guisantes.</p>
 
-        print("\nMiércoles:")
-        print("- Desayuno: Tortilla de huevos enteros con aguacate y tomate.")
-        print("- Almuerzo: Estofado de carne con patatas y zanahorias.")
-        print("- Cena: Pizza casera con base de masa integral, queso y vegetales.")
+        <h1>Miércoles:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Tortilla de huevos enteros con aguacate y tomate.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Estofado de carne con patatas y zanahorias.</p>
+        <h2>Cena:</h2>
+        <p>- Pizza casera con base de masa integral, queso y vegetales.</p>
 
-        print("\nJueves:")
-        print("- Desayuno: Yogur griego con miel y nueces.")
-        print("- Almuerzo: Pechuga de pollo empanizada con puré de papas.")
-        print("- Cena: Lasaña de carne con espinacas y queso.")
+        <h1>Jueves:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Yogur griego con miel y nueces.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Pechuga de pollo empanizada con puré de papas.</p>
+        <h2>Cena:</h2>
+        <p>- Lasaña de carne con espinacas y queso.</p>
 
-        print("\nViernes:")
-        print("- Desayuno: Batido de proteínas con plátano, nueces y leche entera.")
-        print("- Almuerzo: Hamburguesa casera de carne con queso, aguacate y ensalada.")
-        print("- Cena: Tacos de pescado con guacamole y arroz.")
+        <h1>Viernes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Batido de proteínas con plátano, nueces y leche entera.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Hamburguesa casera de carne con queso, aguacate y ensalada.</p>
+        <h2>Cena:</h2>
+        <p>- Tacos de pescado con guacamole y arroz.</p>
 
-        print("\nSábado:")
-        print("- Desayuno: Panqueques de avena con miel y frutas frescas.")
-        print("- Almuerzo: Risotto de champiñones con pollo a la parrilla.")
-        print("- Cena: Rollitos de carne rellenos de queso y espinacas.")
+        <h1>Sábado:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Panqueques de avena con miel y frutas frescas.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Risotto de champiñones con pollo a la parrilla.</p>
+        <h2>Cena:</h2>
+        <p>- Rollitos de carne rellenos de queso y espinacas.</p>
 
-        print("\nDomingo:")
-        print("- Desayuno: Huevos revueltos con queso cheddar y jamón.")
-        print("- Almuerzo: Pollo asado con patatas asadas y brócoli al vapor.")
-        print("- Cena: Sándwich de pavo, queso y aguacate con ensalada.")
+        <h1>Domingo:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Huevos revueltos con queso cheddar y jamón.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Pollo asado con patatas asadas y brócoli al vapor.</p>
+        <h2>Cena:</h2>
+        <p>- Sándwich de pavo, queso y aguacate con ensalada.</p>
+        </body>
+        </html>
+        """
+        pdfkit.from_string(contenido, 'dieta_sedentario_medico_ganarpeso.pdf')
+
 
 
 

@@ -194,49 +194,187 @@ class SistemaExperto(KnowledgeEngine):
         print("- Incluir carbohidratos complejos, proteínas y grasas saludables.")
         print("- Realizar comidas frecuentes y snacks nutritivos.")
 
+
+    # -------------------------------------------------------------------------------
     @Rule(Dieta(objetivo="mantener peso"),
           Dieta(actividad_fisica="si"),
           Dieta(problemas_medicos="si"),
           Dieta(embarazo="no"))
+
     def dieta_para_mantener_peso(self):
         limpiar_pantalla()
-        print("Dieta para mantener peso: [Problemas medicos]")
-        print("- Aumentar la ingesta de calorías con alimentos nutritivos.")
-        print("- Incluir carbohidratos complejos, proteínas y grasas saludables.")
-        print("- Realizar comidas frecuentes y snacks nutritivos.")
+        print("Dieta para mantener peso con problemas médicos:")
+        print("\nLunes:")
+        print("- Desayuno: Tostadas integrales con aguacate y huevo pochado.")
+        print("- Almuerzo: Sopa de lentejas con verduras y un poco de queso parmesano.")
+        print("- Cena: Salmón a la plancha con espárragos y batata al horno.")
 
+        print("\nMartes:")
+        print("- Desayuno: Batido de proteínas con espinacas y plátano.")
+        print("- Almuerzo: Ensalada de garbanzos, pepino y tomate con vinagreta de limón.")
+        print("- Cena: Pescado al horno con espárragos y zanahorias al vapor.")
+
+        print("\nMiércoles:")
+        print("- Desayuno: Yogur griego con nueces y arándanos.")
+        print("- Almuerzo: Tiras de pollo a la parrilla con ensalada de col.")
+        print("- Cena: Berenjenas rellenas de carne magra y verduras.")
+
+        print("\nJueves:")
+        print("- Desayuno: Batido de frutas con yogur bajo en grasa.")
+        print("- Almuerzo: Salmón al horno con brócoli al vapor.")
+        print("- Cena: Ensalada de quinoa con vegetales asados.")
+
+        print("\nViernes:")
+        print("- Desayuno: Avena cocida con trozos de manzana y canela.")
+        print("- Almuerzo: Filete de pavo a la plancha con espárragos a la parrilla.")
+        print("- Cena: Sopa de verduras con pollo desmenuzado.")
+
+        print("\nSábado:")
+        print("- Desayuno: Smoothie de espinacas, piña y jengibre.")
+        print("- Almuerzo: Pollo al curry con arroz integral y verduras al vapor.")
+        print("- Cena: Pechuga de pollo a la plancha con espárragos al vapor.")
+
+        print("\nDomingo:")
+        print("- Desayuno: Tortilla de claras de huevo con espinacas y tomates cherry.")
+        print("- Almuerzo: Ensalada de espinacas, queso feta y nueces.")
+        print("- Cena: Brochetas de camarones con vegetales a la parrilla.")
+
+
+    # -----------------------------------------Problemas medicos/ Sin actividad fisica ------------------------------------------------------
     @Rule(Dieta(objetivo="perder peso"),
           Dieta(actividad_fisica="no"),
           Dieta(problemas_medicos="si"),
           Dieta(embarazo="no"))
+
     def dieta_para_sedentario_medico(self):
         limpiar_pantalla()
-        print("Dieta para una vida sedentaria: [ Perder Peso -Problemas medicos]")
-        print("- Controlar las porciones y evitar alimentos altos en calorías.")
-        print("- Priorizar alimentos integrales y frescos.")
-        print("- Limitar el consumo de alimentos procesados y azucarados.")
+        print("Dieta para una vida sedentaria: [Perder Peso - Problemas médicos]")      
+        print("\nLunes:")
+        print("- Desayuno: Yogur natural con trozos de frutas frescas.")
+        print("- Almuerzo: Ensalada de pollo a la parrilla con vegetales variados.")
+        print("- Cena: Pescado al horno con brócoli al vapor.")
+
+        print("\nMartes:")
+        print("- Desayuno: Batido de espinacas, plátano y leche de almendras.")
+        print("- Almuerzo: Filete de ternera a la plancha con ensalada de tomate y pepino.")
+        print("- Cena: Sopa de verduras casera.")
+
+        print("\nMiércoles:")
+        print("- Desayuno: Tostadas de pan integral con aguacate y tomate.")
+        print("- Almuerzo: Lentejas estofadas con verduras.")
+        print("- Cena: Pollo al horno con espárragos.")
+
+        print("\nJueves:")
+        print("- Desayuno: Avena cocida con nueces y un poco de miel.")
+        print("- Almuerzo: Salmón a la plancha con ensalada de espinacas y quinoa.")
+        print("- Cena: Ensalada de garbanzos con atún en agua.")
+
+        print("\nViernes:")
+        print("- Desayuno: Omelette de claras de huevo con espinacas y champiñones.")
+        print("- Almuerzo: Tortilla de patatas con ensalada verde.")
+        print("- Cena: Pavo al horno con puré de calabaza.")
+
+        print("\nSábado:")
+        print("- Desayuno: Batido de proteínas con frutas y un puñado de almendras.")
+        print("- Almuerzo: Ensalada de pasta integral con vegetales asados.")
+        print("- Cena: Sopa de calabaza y zanahoria.")
+
+        print("\nDomingo:")
+        print("- Desayuno: Pan integral con queso fresco y rodajas de tomate.")
+        print("- Almuerzo: Pollo asado con patatas al horno y ensalada mixta.")
+        print("- Cena: Pescado al horno con espárragos y batata al vapor.")
+    
+
 
     @Rule(Dieta(objetivo="mantener peso"),
           Dieta(actividad_fisica="no"),
           Dieta(problemas_medicos="si"),
           Dieta(embarazo="no"))
+
     def dieta_para_sedentario_medico_mantenerpeso(self):
         limpiar_pantalla()
-        print("Dieta para una vida sedentaria: [ Mantener Peso -Problemas medicos]")
-        print("- Controlar las porciones y evitar alimentos altos en calorías.")
-        print("- Priorizar alimentos integrales y frescos.")
-        print("- Limitar el consumo de alimentos procesados y azucarados.") 
+        print("Dieta para una vida sedentaria: [Mantener Peso - Problemas médicos]")
+        print("\nLunes:")
+        print("- Desayuno: Yogur natural con trozos de frutas frescas y granola.")
+        print("- Almuerzo: Ensalada de quinoa con vegetales asados.")
+        print("- Cena: Pechuga de pollo a la plancha con espárragos al vapor.")
+
+        print("\nMartes:")
+        print("- Desayuno: Batido de espinacas, piña y jengibre.")
+        print("- Almuerzo: Sopa de verduras casera.")
+        print("- Cena: Salmón al horno con brócoli al vapor.")
+
+        print("\nMiércoles:")
+        print("- Desayuno: Tostadas de pan integral con aguacate y huevo pochado.")
+        print("- Almuerzo: Ensalada de garbanzos con atún en agua.")
+        print("- Cena: Berenjenas al horno con tomate y queso fresco.")
+
+        print("\nJueves:")
+        print("- Desayuno: Avena cocida con trozos de manzana y canela.")
+        print("- Almuerzo: Filete de pavo a la plancha con ensalada de espinacas y nueces.")
+        print("- Cena: Tortilla de claras de huevo con espárragos.")
+
+        print("\nViernes:")
+        print("- Desayuno: Batido de proteínas con plátano y un puñado de almendras.")
+        print("- Almuerzo: Ensalada de pollo con quinoa y vegetales frescos.")
+        print("- Cena: Pescado al horno con espárragos y batata al vapor.")
+
+        print("\nSábado:")
+        print("- Desayuno: Pan integral con queso cottage y rodajas de tomate.")
+        print("- Almuerzo: Lentejas estofadas con verduras.")
+        print("- Cena: Pollo al curry con arroz integral y vegetales al vapor.")
+
+        print("\nDomingo:")
+        print("- Desayuno: Omelette de claras de huevo con espinacas y champiñones.")
+        print("- Almuerzo: Filete de salmón a la plancha con ensalada de espinacas y aguacate.")
+        print("- Cena: Sopa de calabaza y zanahoria.")
+
+
 
     @Rule(Dieta(objetivo="ganar peso"),
           Dieta(actividad_fisica="no"),
           Dieta(problemas_medicos="si"),
           Dieta(embarazo="no"))
-    def dieta_para_sedentario_medico_mantenerpeso(self):
+   
+    def dieta_para_sedentario_medico_ganarpeso(self):
         limpiar_pantalla()
-        print("Dieta para una vida sedentaria: [ Ganar Peso -Problemas medicos]")
-        print("- Controlar las porciones y evitar alimentos altos en calorías.")
-        print("- Priorizar alimentos integrales y frescos.")
-        print("- Limitar el consumo de alimentos procesados y azucarados.")       
+        print("Dieta para una vida sedentaria: [Ganar Peso - Problemas médicos]")        
+        print("\nLunes:")
+        print("- Desayuno: Batido de plátano, avena y leche entera.")
+        print("- Almuerzo: Pasta integral con salsa de tomate y albóndigas de carne.")
+        print("- Cena: Salmón al horno con batata asada.")
+
+        print("\nMartes:")
+        print("- Desayuno: Tostadas de pan integral con mantequilla de maní y plátano en rodajas.")
+        print("- Almuerzo: Arroz con pollo al curry y verduras salteadas.")
+        print("- Cena: Ensalada de pasta con atún, mayonesa y guisantes.")
+
+        print("\nMiércoles:")
+        print("- Desayuno: Tortilla de huevos enteros con aguacate y tomate.")
+        print("- Almuerzo: Estofado de carne con patatas y zanahorias.")
+        print("- Cena: Pizza casera con base de masa integral, queso y vegetales.")
+
+        print("\nJueves:")
+        print("- Desayuno: Yogur griego con miel y nueces.")
+        print("- Almuerzo: Pechuga de pollo empanizada con puré de papas.")
+        print("- Cena: Lasaña de carne con espinacas y queso.")
+
+        print("\nViernes:")
+        print("- Desayuno: Batido de proteínas con plátano, nueces y leche entera.")
+        print("- Almuerzo: Hamburguesa casera de carne con queso, aguacate y ensalada.")
+        print("- Cena: Tacos de pescado con guacamole y arroz.")
+
+        print("\nSábado:")
+        print("- Desayuno: Panqueques de avena con miel y frutas frescas.")
+        print("- Almuerzo: Risotto de champiñones con pollo a la parrilla.")
+        print("- Cena: Rollitos de carne rellenos de queso y espinacas.")
+
+        print("\nDomingo:")
+        print("- Desayuno: Huevos revueltos con queso cheddar y jamón.")
+        print("- Almuerzo: Pollo asado con patatas asadas y brócoli al vapor.")
+        print("- Cena: Sándwich de pavo, queso y aguacate con ensalada.")
+
+
 
     #--------------------Fin dietas con problemas medicos---------------------------------
     #-------------------------------Dietas Embarazo ----------------------------------------------------

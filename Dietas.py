@@ -505,7 +505,12 @@ class SistemaExperto(KnowledgeEngine):
         </body>
         </html>
         """
-        pdfkit.from_string(contenido, 'dieta_mantener_peso.pdf')
+        nombre_archivo_pdf = 'dieta_para_mantener_peso.pdf'
+        print("Presiona enter para generar el PDF de la dieta \n")
+        input()
+
+        # Convertir HTML a PDF utilizando la función separada
+        convertir_html_a_pdf(contenido, nombre_archivo_pdf)
 
 
     # -----------------------------------------Problemas medicos/ Sin actividad fisica ------------------------------------------------------
@@ -578,7 +583,12 @@ class SistemaExperto(KnowledgeEngine):
         </body>
         </html>
         """
-        pdfkit.from_string(contenido, 'dieta_sedentario_medico.pdf')
+        nombre_archivo_pdf = 'dieta_para_sedentario_medico.pdf'
+        print("Presiona enter para generar el PDF de la dieta \n")
+        input()
+
+        # Convertir HTML a PDF utilizando la función separada
+        convertir_html_a_pdf(contenido, nombre_archivo_pdf)
     
 
 
@@ -651,7 +661,12 @@ class SistemaExperto(KnowledgeEngine):
         </body>
         </html>
         """
-        pdfkit.from_string(contenido, 'dieta_sedentario_medico_mantenerpeso.pdf')
+        nombre_archivo_pdf = 'dieta_para_sedentario_medico_mantenerpeso.pdf'
+        print("Presiona enter para generar el PDF de la dieta \n")
+        input()
+
+        # Convertir HTML a PDF utilizando la función separada
+        convertir_html_a_pdf(contenido, nombre_archivo_pdf)
 
 
 
@@ -724,7 +739,12 @@ class SistemaExperto(KnowledgeEngine):
         </body>
         </html>
         """
-        pdfkit.from_string(contenido, 'dieta_sedentario_medico_ganarpeso.pdf')
+        nombre_archivo_pdf = 'dieta_para_sedentario_medico_ganarpeso.pdf'
+        print("Presiona enter para generar el PDF de la dieta \n")
+        input()
+
+        # Convertir HTML a PDF utilizando la función separada
+        convertir_html_a_pdf(contenido, nombre_archivo_pdf)
 
 
 

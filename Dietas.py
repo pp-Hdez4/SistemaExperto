@@ -1507,33 +1507,37 @@ class SistemaExperto(KnowledgeEngine):
 
 
 if __name__ == "__main__":
-    engine = SistemaExperto()
-    engine.reset()
-    is_correct = False
-    while not is_correct:
-        objetivo = input("1. ¿Cuál es tu objetivo del plan alimenticio? (perder peso / mantener peso / ganar peso / salud): ").lower()
-        actividad_fisica = input("2. ¿Realizas alguna actividad física? (Si / No): ").lower()
-        problemas_medicos = input("3. ¿Sufres de algún problema médico? (Si / No): ").lower()
-        embarazo = input("4. ¿Te encuentras en etapa de gestación? (si / No): ").lower()
+    while True:
+        engine = SistemaExperto()
+        engine.reset()
+        is_correct = False
+        while not is_correct:
+            objetivo = input("1. ¿Cuál es tu objetivo del plan alimenticio? (perder peso / mantener peso / ganar peso / salud): ").lower()
+            actividad_fisica = input("2. ¿Realizas alguna actividad física? (Si / No): ").lower()
+            problemas_medicos = input("3. ¿Sufres de algún problema médico? (Si / No): ").lower()
+            embarazo = input("4. ¿Te encuentras en etapa de gestación? (si / No): ").lower()
 
-        if objetivo in ["perder peso", "mantener peso", "ganar peso", "salud"]:
-            if actividad_fisica in ["si", "no"]:
-                if problemas_medicos in ["si", "no"]:
-                    if embarazo in ["si", "no"]:
-                        is_correct = True
+            if objetivo in ["perder peso", "mantener peso", "ganar peso", "salud"]:
+                if actividad_fisica in ["si", "no"]:
+                    if problemas_medicos in ["si", "no"]:
+                        if embarazo in ["si", "no"]:
+                            is_correct = True
+                        else:
+                            print("Respuesta incorrecta para la pregunta 4.")
                     else:
-                        print("Respuesta incorrecta para la pregunta 4.")
+                        print("Respuesta incorrecta para la pregunta 3.")
                 else:
-                    print("Respuesta incorrecta para la pregunta 3.")
+                    print("Respuesta incorrecta para la pregunta 2.")
             else:
-                print("Respuesta incorrecta para la pregunta 2.")
-        else:
-            print("Respuesta incorrecta para la pregunta 1.")
+                print("Respuesta incorrecta para la pregunta 1.")
 
-        if not is_correct:
-            print("Por favor, ingresa respuestas válidas.\n")
-            input()
-            limpiar_pantalla()
+            if not is_correct:
+                print("Por favor, ingresa respuestas válidas.\n")
 
-    engine.declare(Dieta(objetivo=objetivo, actividad_fisica=actividad_fisica, problemas_medicos=problemas_medicos, embarazo=embarazo))
-    engine.run()
+        engine.declare(Dieta(objetivo=objetivo, actividad_fisica=actividad_fisica, problemas_medicos=problemas_medicos, embarazo=embarazo))
+        engine.run()
+
+        respuesta = input("¿Desea consultar otra dieta? (Presione cualquier tecla para continuar o 0 para salir): ")
+        if respuesta == '0':
+            break
+

@@ -434,49 +434,300 @@ class SistemaExperto(KnowledgeEngine):
         print("- Incluir carbohidratos complejos, proteínas y grasas saludables.")
         print("- Realizar comidas frecuentes y snacks nutritivos.")
 
+
+    # -------------------------------------------------------------------------------
     @Rule(Dieta(objetivo="mantener peso"),
-          Dieta(actividad_fisica="si"),
-          Dieta(problemas_medicos="si"),
-          Dieta(embarazo="no"))
+        Dieta(actividad_fisica="si"),
+        Dieta(problemas_medicos="si"),
+        Dieta(embarazo="no"))
     def dieta_para_mantener_peso(self):
         limpiar_pantalla()
-        print("Dieta para mantener peso: [Problemas medicos]")
-        print("- Aumentar la ingesta de calorías con alimentos nutritivos.")
-        print("- Incluir carbohidratos complejos, proteínas y grasas saludables.")
-        print("- Realizar comidas frecuentes y snacks nutritivos.")
+        contenido = """
+        <html>
+        <head><title>Dieta para mantener peso con problemas médicos</title></head>
+        <body>
+        <h1>Dieta para mantener peso con problemas médicos</h1>
+        <h1>Lunes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Tostadas integrales con aguacate y huevo pochado.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Sopa de lentejas con verduras y un poco de queso parmesano.</p>
+        <h2>Cena:</h2>
+        <p>- Salmón a la plancha con espárragos y batata al horno.</p>
 
+        <h1>Martes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Batido de proteínas con espinacas y plátano.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Ensalada de garbanzos, pepino y tomate con vinagreta de limón.</p>
+        <h2>Cena:</h2>
+        <p>- Pescado al horno con espárragos y zanahorias al vapor.</p>
+
+        <h1>Miércoles:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Yogur griego con nueces y arándanos.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Tiras de pollo a la parrilla con ensalada de col.</p>
+        <h2>Cena:</h2>
+        <p>- Berenjenas rellenas de carne magra y verduras.</p>
+
+        <h1>Jueves:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Batido de frutas con yogur bajo en grasa.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Salmón al horno con brócoli al vapor.</p>
+        <h2>Cena:</h2>
+        <p>- Ensalada de quinoa con vegetales asados.</p>
+
+        <h1>Viernes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Avena cocida con trozos de manzana y canela.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Filete de pavo a la plancha con espárragos a la parrilla.</p>
+        <h2>Cena:</h2>
+        <p>- Sopa de verduras con pollo desmenuzado.</p>
+
+        <h1>Sábado:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Smoothie de espinacas, piña y jengibre.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Pollo al curry con arroz integral y verduras al vapor.</p>
+        <h2>Cena:</h2>
+        <p>- Pechuga de pollo a la plancha con espárragos al vapor.</p>
+
+        <h1>Domingo:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Tortilla de claras de huevo con espinacas y tomates cherry.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Ensalada de espinacas, queso feta y nueces.</p>
+        <h2>Cena:</h2>
+        <p>- Brochetas de camarones con vegetales a la parrilla.</p>
+        </body>
+        </html>
+        """
+        pdfkit.from_string(contenido, 'dieta_mantener_peso.pdf')
+
+
+    # -----------------------------------------Problemas medicos/ Sin actividad fisica ------------------------------------------------------
     @Rule(Dieta(objetivo="perder peso"),
-          Dieta(actividad_fisica="no"),
-          Dieta(problemas_medicos="si"),
-          Dieta(embarazo="no"))
+        Dieta(actividad_fisica="no"),
+        Dieta(problemas_medicos="si"),
+        Dieta(embarazo="no"))
     def dieta_para_sedentario_medico(self):
         limpiar_pantalla()
-        print("Dieta para una vida sedentaria: [ Perder Peso -Problemas medicos]")
-        print("- Controlar las porciones y evitar alimentos altos en calorías.")
-        print("- Priorizar alimentos integrales y frescos.")
-        print("- Limitar el consumo de alimentos procesados y azucarados.")
+        contenido = """
+        <html>
+        <head><title>Dieta para una vida sedentaria: [Perder Peso - Problemas médicos]</title></head>
+        <body>
+        <h1>Dieta para una vida sedentaria: [Perder Peso - Problemas médicos]</h1>
+        <h1>Lunes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Yogur natural con trozos de frutas frescas.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Ensalada de pollo a la parrilla con vegetales variados.</p>
+        <h2>Cena:</h2>
+        <p>- Pescado al horno con brócoli al vapor.</p>
+
+        <h1>Martes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Batido de espinacas, plátano y leche de almendras.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Filete de ternera a la plancha con ensalada de tomate y pepino.</p>
+        <h2>Cena:</h2>
+        <p>- Sopa de verduras casera.</p>
+
+        <h1>Miércoles:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Tostadas de pan integral con aguacate y tomate.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Lentejas estofadas con verduras.</p>
+        <h2>Cena:</h2>
+        <p>- Pollo al horno con espárragos.</p>
+
+        <h1>Jueves:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Avena cocida con nueces y un poco de miel.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Salmón a la plancha con ensalada de espinacas y quinoa.</p>
+        <h2>Cena:</h2>
+        <p>- Ensalada de garbanzos con atún en agua.</p>
+
+        <h1>Viernes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Omelette de claras de huevo con espinacas y champiñones.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Tortilla de patatas con ensalada verde.</p>
+        <h2>Cena:</h2>
+        <p>- Pavo al horno con puré de calabaza.</p>
+
+        <h1>Sábado:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Batido de proteínas con frutas y un puñado de almendras.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Ensalada de pasta integral con vegetales asados.</p>
+        <h2>Cena:</h2>
+        <p>- Sopa de calabaza y zanahoria.</p>
+
+        <h1>Domingo:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Pan integral con queso fresco y rodajas de tomate.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Pollo asado con patatas al horno y ensalada mixta.</p>
+        <h2>Cena:</h2>
+        <p>- Pescado al horno con espárragos y batata al vapor.</p>
+        </body>
+        </html>
+        """
+        pdfkit.from_string(contenido, 'dieta_sedentario_medico.pdf')
+    
+
 
     @Rule(Dieta(objetivo="mantener peso"),
-          Dieta(actividad_fisica="no"),
-          Dieta(problemas_medicos="si"),
-          Dieta(embarazo="no"))
+        Dieta(actividad_fisica="no"),
+        Dieta(problemas_medicos="si"),
+        Dieta(embarazo="no"))
     def dieta_para_sedentario_medico_mantenerpeso(self):
         limpiar_pantalla()
-        print("Dieta para una vida sedentaria: [ Mantener Peso -Problemas medicos]")
-        print("- Controlar las porciones y evitar alimentos altos en calorías.")
-        print("- Priorizar alimentos integrales y frescos.")
-        print("- Limitar el consumo de alimentos procesados y azucarados.") 
+        contenido = """
+        <html>
+        <head><title>Dieta para una vida sedentaria: [Mantener Peso - Problemas médicos]</title></head>
+        <body>
+        <h1>Dieta para una vida sedentaria: [Mantener Peso - Problemas médicos]</h1>
+        <h1>Lunes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Yogur natural con trozos de frutas frescas y granola.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Ensalada de quinoa con vegetales asados.</p>
+        <h2>Cena:</h2>
+        <p>- Pechuga de pollo a la plancha con espárragos al vapor.</p>
+
+        <h1>Martes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Batido de espinacas, piña y jengibre.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Sopa de verduras casera.</p>
+        <h2>Cena:</h2>
+        <p>- Salmón al horno con brócoli al vapor.</p>
+
+        <h1>Miércoles:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Tostadas de pan integral con aguacate y huevo pochado.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Ensalada de garbanzos con atún en agua.</p>
+        <h2>Cena:</h2>
+        <p>- Berenjenas al horno con tomate y queso fresco.</p>
+
+        <h1>Jueves:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Avena cocida con trozos de manzana y canela.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Filete de pavo a la plancha con ensalada de espinacas y nueces.</p>
+        <h2>Cena:</h2>
+        <p>- Tortilla de claras de huevo con espárragos.</p>
+
+        <h1>Viernes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Batido de proteínas con plátano y un puñado de almendras.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Ensalada de pollo con quinoa y vegetales frescos.</p>
+        <h2>Cena:</h2>
+        <p>- Pescado al horno con espárragos y batata al vapor.</p>
+
+        <h1>Sábado:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Pan integral con queso cottage y rodajas de tomate.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Lentejas estofadas con verduras.</p>
+        <h2>Cena:</h2>
+        <p>- Pollo al curry con arroz integral y vegetales al vapor.</p>
+
+        <h1>Domingo:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Omelette de claras de huevo con espinacas y champiñones.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Filete de salmón a la plancha con ensalada de espinacas y aguacate.</p>
+        <h2>Cena:</h2>
+        <p>- Sopa de calabaza y zanahoria.</p>
+        </body>
+        </html>
+        """
+        pdfkit.from_string(contenido, 'dieta_sedentario_medico_mantenerpeso.pdf')
+
+
 
     @Rule(Dieta(objetivo="ganar peso"),
-          Dieta(actividad_fisica="no"),
-          Dieta(problemas_medicos="si"),
-          Dieta(embarazo="no"))
-    def dieta_para_sedentario_medico_mantenerpeso(self):
+        Dieta(actividad_fisica="no"),
+        Dieta(problemas_medicos="si"),
+        Dieta(embarazo="no"))
+    def dieta_para_sedentario_medico_ganarpeso(self):
         limpiar_pantalla()
-        print("Dieta para una vida sedentaria: [ Ganar Peso -Problemas medicos]")
-        print("- Controlar las porciones y evitar alimentos altos en calorías.")
-        print("- Priorizar alimentos integrales y frescos.")
-        print("- Limitar el consumo de alimentos procesados y azucarados.")       
+        contenido = """
+        <html>
+        <head><title>Dieta para una vida sedentaria: [Ganar Peso - Problemas médicos]</title></head>
+        <body>
+        <h1>Dieta para una vida sedentaria: [Ganar Peso - Problemas médicos]</h1>
+        <h1>Lunes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Batido de plátano, avena y leche entera.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Pasta integral con salsa de tomate y albóndigas de carne.</p>
+        <h2>Cena:</h2>
+        <p>- Salmón al horno con batata asada.</p>
+
+        <h1>Martes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Tostadas de pan integral con mantequilla de maní y plátano en rodajas.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Arroz con pollo al curry y verduras salteadas.</p>
+        <h2>Cena:</h2>
+        <p>- Ensalada de pasta con atún, mayonesa y guisantes.</p>
+
+        <h1>Miércoles:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Tortilla de huevos enteros con aguacate y tomate.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Estofado de carne con patatas y zanahorias.</p>
+        <h2>Cena:</h2>
+        <p>- Pizza casera con base de masa integral, queso y vegetales.</p>
+
+        <h1>Jueves:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Yogur griego con miel y nueces.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Pechuga de pollo empanizada con puré de papas.</p>
+        <h2>Cena:</h2>
+        <p>- Lasaña de carne con espinacas y queso.</p>
+
+        <h1>Viernes:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Batido de proteínas con plátano, nueces y leche entera.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Hamburguesa casera de carne con queso, aguacate y ensalada.</p>
+        <h2>Cena:</h2>
+        <p>- Tacos de pescado con guacamole y arroz.</p>
+
+        <h1>Sábado:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Panqueques de avena con miel y frutas frescas.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Risotto de champiñones con pollo a la parrilla.</p>
+        <h2>Cena:</h2>
+        <p>- Rollitos de carne rellenos de queso y espinacas.</p>
+
+        <h1>Domingo:</h1>
+        <h2>Desayuno:</h2>
+        <p>- Huevos revueltos con queso cheddar y jamón.</p>
+        <h2>Almuerzo:</h2>
+        <p>- Pollo asado con patatas asadas y brócoli al vapor.</p>
+        <h2>Cena:</h2>
+        <p>- Sándwich de pavo, queso y aguacate con ensalada.</p>
+        </body>
+        </html>
+        """
+        pdfkit.from_string(contenido, 'dieta_sedentario_medico_ganarpeso.pdf')
+
+
+
 
     #--------------------Fin dietas con problemas medicos---------------------------------
     #-------------------------------Dietas Embarazo ----------------------------------------------------
